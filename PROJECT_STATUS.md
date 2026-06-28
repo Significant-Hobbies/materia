@@ -1,6 +1,6 @@
 # Materia — PROJECT STATUS
 
-Last updated: 2026-06-21
+Last updated: 2026-06-28
 
 ## Why / What
 
@@ -142,18 +142,17 @@ Proprietary DBs (Examine/NatMed) are NOT scraped — copyright + moat.
 ### Planned (next)
 1. Anatomy art pass — segmented, classy per-system SVG layers (muscular from MIT body-highlighter;
    skeletal/organs from Wikimedia CC-BY); posterior view + view toggle (unblocks lower-back in explorer).
-2. **Safety checker** (`/checker`) — build a stack, flag interactions + shared-compound duplication.
-3. **Evidence heatmap** — color body regions by aggregated grade.
-4. **Semantic search** — Transformers.js + bge-small embeddings over the build-time index (retrieval
+2. **Evidence heatmap** — color body regions by aggregated grade.
+3. **Semantic search** — Transformers.js + bge-small embeddings over the build-time index (retrieval
    only, never generation); symptom→body-part mapping; ⌘K command palette.
-5. Comparison tables (remedy vs remedy for a condition). OG images + MedicalWebPage schema.
-6. Breadth: more systems, conditions, and remedies beyond musculoskeletal.
+4. Comparison tables (remedy vs remedy for a condition). OG images + MedicalWebPage schema.
+5. Breadth: more systems, conditions, and remedies beyond musculoskeletal.
 
 ### Deferred
 - 3D renderer (`ThreeRenderer` via Z-Anatomy meshes) — abstraction in place, not built.
 - Commerce / "where to find it" layer — reserved, firewalled from evidence, awaits traffic.
 
 ### Blocked / Known gaps
-- `lower-back` body part is content-only (posterior view not yet drawn) — flagged by `npm run checks`.
+- `lower-back` body part is content-only (no anterior SVG region yet — not clickable in explorer) — flagged by `npm run checks`.
 - A few citations the seed research could not 100% verify are cited via their confirmed umbrella
   reference/DOI (menthol, comfrey individual RCTs) — see `docs/decision-log.md`.
