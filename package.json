@@ -16,7 +16,8 @@
     "format": "biome format --write .",
     "lint": "biome check .",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "deploy": "node scripts/manual-deploy.mjs deploy.yml ci.yml"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.6",
