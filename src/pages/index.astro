@@ -28,9 +28,55 @@ for (const [sys, file] of Object.entries(MODEL_FILES)) {
   }
 }
 const hasAnyModel = Object.keys(models).length > 0;
+
+// FAQ content — short, factual, self-contained passages (35–60 words each)
+// optimized for Generative Engine Optimization (AI search extractability).
+const faqs = [
+  {
+    q: 'What is Materia?',
+    a: 'Materia is an evidence-graded reference for remedies, organized by body part. A layered, clickable human body leads into a knowledge graph linking body, condition, remedy, compound, and study. Every remedy is evidence-graded and study-cited. It is ad-free and not medical advice.',
+  },
+  {
+    q: 'Is Materia free?',
+    a: 'Yes, Materia is completely free and ad-free. It is a static reference site with no subscription, no account, and no advertising. All content is publicly accessible to anyone, with nothing gated behind a paywall or sign-up.',
+  },
+  {
+    q: 'How does Materia grade evidence?',
+    a: 'Each remedy is assigned an evidence grade based on the quality and quantity of cited studies. Grades reflect the strength of clinical research, ranging from meta-analyses down to traditional use. The methodology page explains the full grading system in detail.',
+  },
+  {
+    q: 'Can I search remedies by body part?',
+    a: 'Yes. Materia features an interactive body explorer — click any anatomical region to see the conditions and remedies associated with that body part, from headaches to joint pain to digestive issues. The layered model lets you switch between skeletal, muscular, organ, and other systems.',
+  },
+  {
+    q: 'Does Materia cover herbs, supplements, and drugs?',
+    a: 'Yes. Materia covers all remedy types, including herbs, supplements, and pharmaceutical drugs. Each remedy is linked to its active compounds and the studies that tested it, regardless of whether the remedy is natural or synthetic. Coverage is judged by evidence, not category.',
+  },
+  {
+    q: 'Is Materia medical advice?',
+    a: 'No. Materia is not medical advice. It is an educational reference that compiles and grades the scientific evidence for remedies. Always consult a qualified healthcare professional before starting, stopping, or changing any treatment based on what you read here.',
+  },
+  {
+    q: 'How many remedies does Materia have?',
+    a: 'Materia includes hundreds of remedies across dozens of body parts and conditions, each with cited studies and an evidence grade. The content is hand-edited and continuously expanded as new research is reviewed and added to the knowledge graph.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
 ---
 
-<BaseLayout>
+<BaseLayout jsonld={faqJsonLd}>
   <section class="container-x grid items-center gap-10 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
     <div style="animation: rise 0.6s var(--ease-out-expo) both">
       <p class="eyebrow mb-4">Evidence-graded · Ad-free · Fully cited</p>
@@ -85,5 +131,30 @@ const hasAnyModel = Object.keys(models).length > 0;
         ))
       }
     </ul>
+  </section>
+
+  <section class="container-x py-16" aria-labelledby="faq-heading">
+    <div class="mx-auto max-w-3xl">
+      <p class="eyebrow mb-4">Frequently asked</p>
+      <h2 id="faq-heading" class="text-3xl sm:text-4xl">Questions about Materia</h2>
+      <div class="mt-8 divide-y divide-line border-y border-line">
+        {
+          faqs.map((f) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-ink">
+                <span class="font-display text-lg font-medium leading-snug">{f.q}</span>
+                <span
+                  class="mt-1 shrink-0 text-faint transition-transform duration-200 group-open:rotate-45"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+              <p class="prose-materia mt-3 text-muted">{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
   </section>
 </BaseLayout>
