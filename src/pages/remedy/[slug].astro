@@ -8,6 +8,7 @@ import SafetyBlock from '@/components/astro/SafetyBlock.astro';
 import UseGuidance from '@/components/astro/UseGuidance.astro';
 import TraditionOverlay from '@/components/astro/TraditionOverlay.astro';
 import { getRemedyView } from '@/lib/graph';
+import { site } from '@/data/site';
 
 export async function getStaticPaths() {
   const remedies = await getCollection('remedies');
@@ -18,9 +19,21 @@ const { remedy } = Astro.props;
 const { efficacy, compounds, interactions } = await getRemedyView(remedy);
 const { Content } = await render(remedy);
 const tradition = efficacy.flatMap((e) => e.tradition);
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const remedySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: remedy.data.name,
+  url: canonical,
+  description: remedy.data.summary,
+  about: {
+    '@type': 'MedicalTherapy',
+    name: remedy.data.name,
+  },
+};
 ---
 
-<BaseLayout title={remedy.data.name} description={remedy.data.summary}>
+<BaseLayout title={remedy.data.name} description={remedy.data.summary} jsonld={remedySchema}>
   <article class="container-x py-12">
     <p class="eyebrow mb-3">Remedy · {remedy.data.kind}</p>
     <h1 class="text-4xl">{remedy.data.name}</h1>

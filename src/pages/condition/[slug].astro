@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Disclaimer from '@/components/astro/Disclaimer.astro';
 import EvidenceBadge from '@/components/astro/EvidenceBadge.astro';
 import { getConditionView } from '@/lib/graph';
+import { site } from '@/data/site';
 
 export async function getStaticPaths() {
   const conditions = await getCollection('conditions');
@@ -14,9 +15,21 @@ const { condition } = Astro.props;
 const { bodyParts, remedies } = await getConditionView(condition);
 const { Content } = await render(condition);
 const redFlag = condition.data.severity === 'see-a-doctor' || condition.data.redFlags.length > 0;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const conditionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: condition.data.name,
+  url: canonical,
+  description: condition.data.summary,
+  about: {
+    '@type': 'MedicalCondition',
+    name: condition.data.name,
+  },
+};
 ---
 
-<BaseLayout title={condition.data.name} description={condition.data.summary}>
+<BaseLayout title={condition.data.name} description={condition.data.summary} jsonld={conditionSchema}>
   <article class="container-x py-12">
     <p class="eyebrow mb-3">Condition</p>
     <h1 class="text-4xl">{condition.data.name}</h1>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Fraunces, Georgia, serif">
+  <rect width="1200" height="630" fill="#faf8f3" />
+  <rect x="0" y="0" width="1200" height="8" fill="#2d6a4f" />
+
+  <!-- anatomical body outline -->
+  <g transform="translate(820,90)" fill="none" stroke="#2d6a4f" stroke-width="3" opacity="0.85">
+    <ellipse cx="120" cy="70" rx="42" ry="50" />
+    <path d="M120 120 L120 360" />
+    <path d="M120 150 L60 220 L60 300" />
+    <path d="M120 150 L180 220 L180 300" />
+    <path d="M120 360 L80 470 L70 560" />
+    <path d="M120 360 L160 470 L170 560" />
+    <path d="M95 180 Q120 200 145 180 L150 320 Q120 345 90 320 Z" stroke-width="3.5" />
+  </g>
+
+  <text x="90" y="250" font-size="120" font-weight="600" fill="#1f3d2f" letter-spacing="-2">Materia</text>
+  <text x="92" y="320" font-size="34" fill="#5c6b63" font-family="Inter, system-ui, sans-serif">The whole body, evidence-graded.</text>
+  <text x="92" y="540" font-size="22" fill="#8a9a90" font-family="Inter, system-ui, sans-serif">Explore a layered human body and find evidence-graded, study-cited remedies.</text>
+</svg>

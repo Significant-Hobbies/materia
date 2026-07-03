@@ -11,14 +11,15 @@ interface Props {
   title?: string;
   description?: string;
   bare?: boolean;
+  jsonld?: Record<string, unknown> | Record<string, unknown>[];
 }
-const { title, description, bare } = Astro.props;
+const { title, description, bare, jsonld } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <Head title={title} description={description} bare={bare} />
+    <Head title={title} description={description} bare={bare} jsonld={jsonld} />
   </head>
   <body class="flex min-h-screen flex-col">
     <Disclaimer variant="banner" />

@@ -6,6 +6,7 @@ export const site = {
   url: 'https://materia.io',
   nav: [
     { label: 'Explore', href: '/' },
+    { label: 'Body Parts', href: '/parts' },
     { label: 'Conditions', href: '/conditions' },
     { label: 'Remedies', href: '/remedies' },
     { label: 'Compounds', href: '/compounds' },

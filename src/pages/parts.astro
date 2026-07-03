@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SYSTEMS, SYSTEM_BY_ID, type SystemId } from '@/data/systems';
+
+const parts = (await getCollection('bodyParts')).sort(
+  (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name)
+);
+
+const bySystem: Record<string, typeof parts> = {};
+for (const p of parts) {
+  for (const s of p.data.systems) {
+    (bySystem[s] ??= []).push(p);
+  }
+}
+
+const systemsWithParts = SYSTEMS.filter((s) => bySystem[s.id]?.length);
+---
+
+<BaseLayout
+  title="Body Parts"
+  description="Browse all 24 body parts grouped by anatomical system — the entry points into Materia's evidence-graded remedies."
+>
+  <section class="container-x py-12">
+    <p class="eyebrow mb-3">Browse</p>
+    <h1 class="text-4xl">Body Parts</h1>
+    <p class="mt-3 max-w-xl text-muted">
+      {parts.length} body parts across {systemsWithParts.length} anatomical systems — each a doorway into the
+      conditions and evidence-graded remedies that affect it.
+    </p>
+
+    <div class="mt-10 space-y-10">
+      {
+        systemsWithParts.map((s) => (
+          <section>
+            <h2 class="font-display text-2xl text-ink">{s.name}</h2>
+            <p class="mt-1 text-sm text-muted">{s.blurb}</p>
+            <ul class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {bySystem[s.id].map((p) => (
+                <li>
+                  <a
+                    href={`/part/${p.id}`}
+                    class="card block h-full p-4 transition-colors hover:border-accent hover:bg-accent-soft"
+                  >
+                    <p class="font-display text-lg text-ink">{p.data.name}</p>
+                    <p class="mt-1 text-sm text-muted">{p.data.summary}</p>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
