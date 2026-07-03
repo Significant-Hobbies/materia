@@ -71,12 +71,13 @@ The data model is the single source of truth: `src/content.config.ts` (six colle
 | 2026-06-21 | Second import→grade wave: rhodiola→depression (C), Asian ginseng→cognitive decline (C), holy basil→anxiety+type-2-diabetes (C), + new **chronic venous insufficiency** node (calf) with horse chestnut (B) & gotu kola (C) and a DVT emergency red-flag — **11 new verified studies** (curl-verified via Europe PMC) |
 | 2026-06-21 | **Breadth push** (every-disease scope): `conditions-scaffold.mjs` → +39 condition stubs across all body systems (cardio·resp·GI·endocrine·neuro·skin·eye/ear·women's/men's health), severity + red-flags hand-curated (never scraped); `openfda-drugs.mjs` expanded → +54 drugs (98 total) by class w/ checker risk-keywords. 519 pages. Scaffolds carry no remedies/grades until the curated loop reaches them |
 | 2026-06-21 | **8-cluster parallel grading sweep** (the throughput lever): AMD (zinc A·lutein/zeaxanthin B·omega-3 D), menopause (soy B·red clover C·black cohosh D), BPH (saw palmetto D·beta-sitosterol C·pygeum C), PMS/period (chasteberry B·ginger B·magnesium C), hair loss (rosemary·pumpkin-seed·saw palmetto C), restless legs (iron B·magnesium D), cold sores (lysine C·lemon balm C), fibromyalgia (vit-D C·CoQ10 D·magnesium D) — **25 verified studies**, 9 new remedies, 8 scaffolds filled. 553 pages |
+| 2026-07-03 | **Production deploy** — all 553 cited pages deployed to Cloudflare Pages via `npm run deploy` (guarded `workflow_dispatch`). Live at `materia-6bq.pages.dev`. Custom domain `materia.io` not yet wired (DNS pending). |
 
 ## Products
 
-**Live:** not yet deployed. Target: `materia.pages.dev` → custom domain `materia.io`
-(`askgalen.com` reserved as alt). Build output: `dist/` (**553 static pages**). Live deploy is behind
-(last deploy = 426 pages); redeploy with `wrangler pages deploy dist --project-name=materia`.
+**Live:** `https://materia-6bq.pages.dev/` — all **553 static pages** deployed 2026-07-03 via
+guarded `workflow_dispatch` (`npm run deploy` → `scripts/manual-deploy.mjs` → `deploy.yml`).
+Custom domain `materia.io` reserved but DNS not yet configured. Build output: `dist/`.
 
 **Knowledge graph:** 24 body parts · 77 conditions (47 graded + 30 scaffolded stubs) · 207 remedies
 (91 curated + 98 drug stubs + 18 herb stubs) · 60 compounds · 175 studies · 37 sources. **9 anatomy layers** as decimated Z-Anatomy
