@@ -17,4 +17,4 @@ export const site = {
 
 /** The short disclaimer line that appears site-wide and on every claim. */
 export const DISCLAIMER_SHORT =
-  'Educational reference — not medical advice. Talk to a clinician before changing what you take.';
+  'Educational reference, not medical advice. Talk to a clinician before changing what you take.';
