@@ -74,9 +74,42 @@ const faqJsonLd = {
     },
   })),
 };
+
+const softwareAppJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Materia',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Web Browser',
+  url: 'https://materia.io',
+  description:
+    'An evidence-graded reference for remedies organized by body part. A layered, clickable human body leads into a knowledge graph of body, condition, remedy, compound, and study, with every remedy evidence-graded and study-cited.',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  creator: {
+    '@type': 'Person',
+    name: 'Sarthak Agrawal',
+    url: 'https://sarthakagrawal.dev',
+  },
+};
+
+const jsonld = [faqJsonLd, softwareAppJsonLd];
+
+const fleet = [
+  { label: 'Foundry', href: 'https://sassmaker.com', note: 'SaaS factory floor' },
+  { label: 'Aliveville', href: 'https://aliveville.com', note: 'AI world simulator' },
+  { label: 'CodeVetter', href: 'https://codevetter.com', note: 'AI code review' },
+  { label: 'High Signal', href: 'https://highsignal.app', note: 'Daily tech/startup brief' },
+  { label: 'Karte', href: 'https://karte.cc', note: 'AI link-in-bio' },
+  { label: 'RolePatch', href: 'https://rolepatch.com', note: 'AI resume tailoring' },
+  { label: 'Significant Hobbies', href: 'https://significanthobbies.com', note: 'Hobby journey mapper' },
+];
 ---
 
-<BaseLayout jsonld={faqJsonLd}>
+<BaseLayout jsonld={jsonld}>
   <section class="container-x grid items-center gap-10 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
     <div style="animation: rise 0.6s var(--ease-out-expo) both">
       <p class="eyebrow mb-4">Evidence-graded · Ad-free · Fully cited</p>
@@ -155,6 +188,32 @@ const faqJsonLd = {
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <section class="container-x pb-16" aria-labelledby="fleet-heading">
+    <div class="mx-auto max-w-3xl border-t border-line pt-10">
+      <p class="eyebrow mb-4">More from the fleet</p>
+      <h2 id="fleet-heading" class="text-lg text-ink" style="font-family: var(--font-display)">
+        Sister projects by the same author
+      </h2>
+      <ul class="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+        {
+          fleet.map((f) => (
+            <li class="flex items-baseline gap-2 text-sm text-muted">
+              <a
+                href={f.href}
+                class="font-medium text-fg transition-colors hover:text-accent"
+                rel="noopener"
+                target="_blank"
+              >
+                {f.label}
+              </a>
+              <span class="text-faint">— {f.note}</span>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 </BaseLayout>
