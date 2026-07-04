@@ -1,0 +1,27 @@
+# Materia
+
+> Materia is an evidence-graded reference for remedies organized by body part. A layered, clickable human body leads into a knowledge graph of body, condition, remedy, compound, and study, with every remedy evidence-graded and study-cited. Ad-free, not medical advice.
+
+Static Astro site at materia.io. Content collections are hand-editable markdown with structured frontmatter linking body parts to conditions to remedies to compounds to studies.
+
+## Product
+
+- [Home](https://materia.io/): Interactive body explorer and landing
+- [Body parts](https://materia.io/parts): Browse remedies by anatomical system
+- [Conditions](https://materia.io/conditions): Browse remedies by condition
+- [Remedies](https://materia.io/remedies): Evidence-graded remedy profiles
+- [Compounds](https://materia.io/compounds): Active compound profiles
+- [Studies](https://materia.io/studies): Cited research studies
+- [Methodology](https://materia.io/methodology): How evidence grades are assigned
+- [About](https://materia.io/about): Project background and scope
+- [Privacy](https://materia.io/privacy): Privacy policy
+- [Terms](https://materia.io/terms): Terms of use
+
+## Source
+
+- [GitHub — materia](https://github.com/sarthak-fleet/materia): Monorepo (Astro static site, content collections, body explorer)
+
+## Optional
+
+- [Foundry](https://sassmaker.com): Fleet showcase
+- [Sarthak Agrawal](https://sarthakagrawal.dev): Builder portfolio
