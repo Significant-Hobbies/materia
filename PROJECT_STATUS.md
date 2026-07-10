@@ -141,13 +141,17 @@ Proprietary DBs (Examine/NatMed) are NOT scraped — copyright + moat.
 ## Todo / Planned / Deferred / Blocked
 
 ### Planned (next)
-1. Anatomy art pass — segmented, classy per-system SVG layers (muscular from MIT body-highlighter;
+1. ~~Anatomy art pass — segmented, classy per-system SVG layers.~~ **Paused** after the deployed 553-page evidence baseline;
    skeletal/organs from Wikimedia CC-BY); posterior view + view toggle (unblocks lower-back in explorer).
-2. **Evidence heatmap** — color body regions by aggregated grade.
-3. **Semantic search** — Transformers.js + bge-small embeddings over the build-time index (retrieval
+2. ~~Evidence heatmap.~~ **Paused**;
+3. ~~Semantic search.~~ **Paused**;
    only, never generation); symptom→body-part mapping; ⌘K command palette.
-4. Comparison tables (remedy vs remedy for a condition). OG images + MedicalWebPage schema.
-5. Breadth: more systems, conditions, and remedies beyond musculoskeletal.
+4. ~~Comparison tables and OG/schema polish.~~ **Paused**;
+5. ~~Breadth expansion.~~ **Paused**;
+
+### Closure
+
+- **Finish-and-pause (2026-07-10):** the deployed, cited reference corpus is the frozen baseline. Reopen only with sustained traffic and a defined evidence/content budget.
 
 ### Deferred
 - 3D renderer (`ThreeRenderer` via Z-Anatomy meshes) — abstraction in place, not built.
