@@ -1,0 +1,46 @@
+{
+  "name": "Materia",
+  "version": "1",
+  "url": "https://materia.significanthobbies.com",
+  "llms": "https://materia.significanthobbies.com/llms.txt",
+  "llmsFull": null,
+  "sitemap": "https://materia.significanthobbies.com/sitemap.xml",
+  "markdown": {
+    "suffix": ".md",
+    "negotiation": true
+  },
+  "surfaces": [
+    {
+      "id": "home",
+      "url": "https://materia.significanthobbies.com/",
+      "md": "https://materia.significanthobbies.com/index.md",
+      "kind": "static",
+      "description": "Product home"
+    },
+    {
+      "id": "parts",
+      "url": "https://materia.significanthobbies.com/parts",
+      "md": null,
+      "kind": "static",
+      "description": "By anatomical system"
+    },
+    {
+      "id": "remedies",
+      "url": "https://materia.significanthobbies.com/remedies",
+      "md": null,
+      "kind": "static",
+      "description": "Evidence-graded remedies"
+    },
+    {
+      "id": "methodology",
+      "url": "https://materia.significanthobbies.com/methodology",
+      "md": null,
+      "kind": "static",
+      "description": "How grades are assigned"
+    }
+  ],
+  "auth": {
+    "public": true,
+    "notes": "Auth-walled app routes are not agent-indexed unless listed here."
+  }
+}

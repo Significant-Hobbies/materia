@@ -1,27 +1,20 @@
 # Materia
 
-> Materia is an evidence-graded reference for remedies organized by body part. A layered, clickable human body leads into a knowledge graph of body, condition, remedy, compound, and study, with every remedy evidence-graded and study-cited. Ad-free, not medical advice.
-
-Static Astro site at materia.significanthobbies.com. Content collections are hand-editable markdown with structured frontmatter linking body parts to conditions to remedies to compounds to studies.
+> Evidence-graded reference for remedies organized by body part — body → condition → remedy → compound → study, with citations.
 
 ## Product
 
-- [Home](https://materia.significanthobbies.com/): Interactive body explorer and landing
-- [Body parts](https://materia.significanthobbies.com/parts): Browse remedies by anatomical system
-- [Conditions](https://materia.significanthobbies.com/conditions): Browse remedies by condition
-- [Remedies](https://materia.significanthobbies.com/remedies): Evidence-graded remedy profiles
-- [Compounds](https://materia.significanthobbies.com/compounds): Active compound profiles
-- [Studies](https://materia.significanthobbies.com/studies): Cited research studies
-- [Methodology](https://materia.significanthobbies.com/methodology): How evidence grades are assigned
-- [About](https://materia.significanthobbies.com/about): Project background and scope
-- [Privacy](https://materia.significanthobbies.com/privacy): Privacy policy
-- [Terms](https://materia.significanthobbies.com/terms): Terms of use
+- [Home](https://materia.significanthobbies.com/): Body explorer
+- [Parts](https://materia.significanthobbies.com/parts): By anatomical system
+- [Remedies](https://materia.significanthobbies.com/remedies): Evidence-graded remedies
+- [Methodology](https://materia.significanthobbies.com/methodology): How grades are assigned
 
-## Source
+## Machine surfaces
 
-- [GitHub — materia](https://github.com/sarthak-fleet/materia): Monorepo (Astro static site, content collections, body explorer)
+- [Agent catalog](https://materia.significanthobbies.com/api/ai): JSON inventory of public surfaces
+- [Homepage markdown](https://materia.significanthobbies.com/index.md): Product brief without JS
+- [This index](https://materia.significanthobbies.com/llms.txt)
 
 ## Optional
 
-- [Foundry](https://sassmaker.com): Fleet showcase
-- [Sarthak Agrawal](https://sarthakagrawal.dev): Builder portfolio
+- [Foundry](https://sassmaker.com): Parent fleet showcase
