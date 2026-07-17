@@ -3,13 +3,52 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Disclaimer from '@/components/astro/Disclaimer.astro';
 import SafetyChecker from '@/components/react/SafetyChecker';
 import { getCheckerData } from '@/lib/graph';
+import { site } from '@/data/site';
 
 const remedies = await getCheckerData();
+
+const howtoJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Check supplement and herb interactions',
+  description:
+    'Build a list of the herbs, supplements, and drugs you take and check it for recorded interactions, duplicate active compounds, and shared risk patterns.',
+  url: `${site.url}/checker`,
+  inLanguage: 'en',
+  totalTime: 'PT2M',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Search for a remedy',
+      text: 'Type the name of an herb, supplement, or drug (or a synonym like "Indian ginseng" for ashwagandha). Matching remedies appear as you type.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Add it to your stack',
+      text: 'Click a result to add it to your list. Add every remedy and medication you take — the checker works on the full combination, not one item at a time.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Review the warnings',
+      text: 'The checker flags pairwise interactions (with severity and mechanism), duplicate active compounds across different products, and risk classes where several items act on the same system (e.g. bleeding risk, sedation, blood sugar).',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Check pregnancy and contraindication notes',
+      text: 'Each remedy card shows pregnancy status and recorded contraindications. Items flagged "avoid" in pregnancy are highlighted when present in your stack.',
+    },
+  ],
+};
 ---
 
 <BaseLayout
   title="Interaction & safety checker"
-  description="Build a list of the herbs, supplements, and drugs you take and check it for interactions, duplicate compounds, and shared risks."
+  description="Build a list of the herbs, supplements, and drugs you take and check it for interactions, duplicate compounds, and shared risks. Free, cited, not medical advice."
+  jsonld={howtoJsonLd}
 >
   <section class="container-x py-12">
     <p class="eyebrow mb-3">Safety</p>
@@ -26,9 +65,48 @@ const remedies = await getCheckerData();
       <SafetyChecker client:load remedies={remedies} />
     </div>
 
-    <p class="mt-10 max-w-2xl text-[12.5px] text-faint">
-      This tool aggregates the interactions recorded in our cited sources and is not exhaustive — it
-      cannot replace a pharmacist or clinician, who can check your full medication list and conditions.
-    </p>
+    <div class="mt-12 max-w-2xl">
+      <h2 class="text-xl">Where the interaction data comes from</h2>
+      <div class="prose-materia mt-3 text-sm text-muted">
+        <p>
+          Every remedy page in Materia carries a hand-curated <code>safety</code> block and a
+          typed <code>interactsWith</code> list. The checker runs entirely on that data — it
+          is not a third-party API call. Specifically, the checker knows about three things:
+        </p>
+        <ol>
+          <li>
+            <strong>Pairwise interactions.</strong> Each <code>interactsWith</code> entry
+            names a target remedy, a severity (severe / moderate / minor / theoretical), and
+            a plain-language mechanism. These are drawn from the cited sources on each
+            remedy page — NCCIH fact sheets, MedlinePlus drug records, MSK About Herbs
+            monographs, and primary studies where the interaction was characterized.
+          </li>
+          <li>
+            <strong>Duplicate active compounds.</strong> When two products in your stack
+            share a compound (e.g. two different “sleep aids” both containing melatonin),
+            the checker flags the overlap so you don’t accidentally double-dose a constituent.
+          </li>
+          <li>
+            <strong>Risk-class clustering.</strong> The checker infers risk classes
+            (bleeding, sedation, serotonin, blood sugar, blood pressure, CYP/P-gp) from the
+            free-text interaction notes on each remedy and warns when several items in your
+            stack pile onto the same system — even when no single pair has a recorded
+            interaction.
+          </li>
+        </ol>
+        <p>
+          The full interaction graph is also available as machine-readable JSON via the
+          <a href="/data">knowledge-graph export</a> (<code>remedy-interacts-with</code>
+          edges). The checker is a read-only view of that same data.
+        </p>
+      </div>
+
+      <p class="mt-6 text-[12.5px] text-faint">
+        This tool aggregates the interactions recorded in our cited sources and is not
+        exhaustive — it cannot replace a pharmacist or clinician, who can check your full
+        medication list and conditions. Interaction databases change; always verify
+        time-sensitive decisions with a qualified professional.
+      </p>
+    </div>
   </section>
 </BaseLayout>
