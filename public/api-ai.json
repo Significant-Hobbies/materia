@@ -4,7 +4,7 @@
   "url": "https://materia.significanthobbies.com",
   "llms": "https://materia.significanthobbies.com/llms.txt",
   "llmsFull": null,
-  "sitemap": "https://materia.significanthobbies.com/sitemap.xml",
+  "sitemap": "https://materia.significanthobbies.com/sitemap-index.xml",
   "markdown": {
     "suffix": ".md",
     "negotiation": true
