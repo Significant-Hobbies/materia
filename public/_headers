@@ -1,0 +1,25 @@
+# Static Astro marketing + content — aggressive edge cache.
+# HTML revalidated weekly at the edge; hashed assets immutable.
+/*
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/models/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/draco/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600, s-maxage=86400
+  Content-Type: application/xml; charset=utf-8
+
+/llms.txt
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/index.md
+  Cache-Control: public, max-age=3600, s-maxage=86400
