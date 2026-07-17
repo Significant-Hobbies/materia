@@ -3,7 +3,7 @@ export const site = {
   tagline: 'The whole body, evidence-graded.',
   description:
     'Explore a layered human body and find evidence-graded, study-cited herbs, supplements, and drugs for any part or condition. Ad-free. Not medical advice.',
-  url: 'https://materia.io',
+  url: 'https://materia.significanthobbies.com',
   nav: [
     { label: 'Explore', href: '/' },
     { label: 'Body Parts', href: '/parts' },

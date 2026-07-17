@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://materia.io',
+  site: 'https://materia.significanthobbies.com',
   output: 'static',
   trailingSlash: 'never',
   // Emit `about.html` rather than `about/index.html` so URLs carry no trailing
