@@ -11,7 +11,7 @@ evidence. Think "Examine.com for the whole body," organized as a clickable knowl
 
 ## What it is
 
-553 pages covering 207 remedies (herbs, supplements, drugs), 77 conditions, 175 studies,
+555 pages covering 207 remedies (herbs, supplements, drugs), 77 conditions, 175 studies,
 60 active compounds, and 37 source citations (NCCIH, MedlinePlus, Cochrane, NIH ODS, MSK
 About Herbs). Every remedy×condition pair carries an evidence grade and links to the
 primary research or authoritative source behind it. The whole graph is downloadable as a
@@ -42,7 +42,8 @@ independently and shown next to every efficacy claim.
   page, and red-flag gating on conditions that warrant clinical attention.
 - **No dosing recommendations.** Where amounts appear, they report what researchers
   *studied* ("studied at 300–600 mg/day in trials"), never a dose to take. A content-check
-  lint fails the build if it finds imperative dosing prose.
+  lint flags imperative dosing prose for review (schema validation, which does
+  fail the build, enforces the citation requirement).
 - **No ads, no affiliate links, no supplement sales.** The commerce layer is reserved but
   firewalled from evidence.
 - **No invented citations.** The schema enforces ≥1 study or source per efficacy claim — the
