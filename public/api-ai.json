@@ -3,8 +3,9 @@
   "version": "1",
   "url": "https://materia.significanthobbies.com",
   "llms": "https://materia.significanthobbies.com/llms.txt",
-  "llmsFull": null,
-  "sitemap": "https://materia.significanthobbies.com/sitemap-index.xml",
+  "llmsFull": "https://materia.significanthobbies.com/llms-full.txt",
+  "sitemap": "https://materia.significanthobbies.com/sitemap.xml",
+  "robots": "https://materia.significanthobbies.com/robots.txt",
   "markdown": {
     "suffix": ".md",
     "negotiation": true
