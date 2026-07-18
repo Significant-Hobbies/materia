@@ -1,6 +1,9 @@
 name: Deploy materia to Cloudflare Pages
 
 # CI deploy verified 2026-06-26; production deploy is manual dispatch only.
+# Rollback: Cloudflare Pages preserves every deployment. Roll back via
+# dash.cloudflare.com → Pages → materia → Deployments → "Rollback to this
+# deployment".
 on:
   workflow_dispatch:
 concurrency:
@@ -10,6 +13,7 @@ concurrency:
 jobs:
   deploy-production:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -29,4 +33,4 @@ jobs:
       - name: Smoke production
         run: |
           set -euo pipefail
-          curl --fail --retry 5 --retry-delay 5 --max-time 20 "https://materia-6bq.pages.dev/" >/dev/null
+          curl --fail --retry 5 --retry-delay 5 --max-time 20 "https://materia.significanthobbies.com/" >/dev/null

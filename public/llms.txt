@@ -8,6 +8,7 @@
 - [Parts](https://materia.significanthobbies.com/parts): By anatomical system
 - [Remedies](https://materia.significanthobbies.com/remedies): Evidence-graded remedies
 - [Methodology](https://materia.significanthobbies.com/methodology): How grades are assigned
+- [FAQ](https://materia.significanthobbies.com/faq): Common questions about Materia
 
 ## Machine surfaces
 

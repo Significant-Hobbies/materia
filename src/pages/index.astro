@@ -134,15 +134,11 @@ const fleet = [
         >
       </div>
     </div>
+  </section>
 
-    <div id="explorer" style="animation: rise 0.7s var(--ease-out-expo) both; animation-delay: 0.08s">
-      {
-        hasAnyModel ? (
-          <BodyExplorer client:only="react" parts={parts} models={models} />
-        ) : (
-          <BodyExplorer client:visible parts={parts} models={models} />
-        )
-      }
+  <section class="container-x py-8 lg:py-12">
+    <div id="explorer" style="contain: layout; min-height: 700px">
+      <BodyExplorer client:only="react" parts={parts} models={models} />
     </div>
   </section>
 

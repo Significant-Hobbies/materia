@@ -16,6 +16,15 @@ node_modules/
 # generated search index
 public/search-index.json
 
+# blume (docs presentation layer — generated, not source of truth)
+.blume/
+.blume-verify/
+docs-dist/
+
+# local agent logs
+.devin/
+.agent-logs/
+
 # os / editor
 .DS_Store
 Thumbs.db
