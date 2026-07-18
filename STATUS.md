@@ -38,9 +38,13 @@ None. The product baseline is frozen by decision, not blocked.
   surface and is not part of `npm run build`; decide whether to publish docs
   to a separate host/subdomain and whether to override Blume's output dir
   before running `blume build` in CI. See [`docs/operations/deploy.md`](docs/operations/deploy.md).
-- **`lower-back` body part** is content-only (no anterior SVG region yet — not
-  clickable in the explorer). Flagged by `npm run checks`. Resumes if the
-  anatomy art pass is reopened.
+- **2D fallback region coverage.** The active explorer is the 3D renderer
+  (`ThreeBody.tsx`), which maps all 24 body parts. The 2D SVG fallback
+  (`AnatomyBody.tsx`) only draws 13 anterior regions, so 12 body parts (brain,
+  heart, intestines, kidneys, liver, lower-back, lungs, pancreas, skin,
+  stomach, thyroid, upper-back) are non-clickable *in the 2D fallback only* —
+  `npm run checks` warns on each. Resumes if the 2D anatomy art pass is
+  reopened.
 - **A few seed citations** could not be 100% verified and cite a confirmed
   umbrella reference/DOI instead of a specific PMID (comfrey, menthol). See
   [ADR 0006](docs/architecture/decisions/0006-citation-verification-policy.md).

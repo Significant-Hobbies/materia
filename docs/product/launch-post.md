@@ -11,7 +11,7 @@ evidence. Think "Examine.com for the whole body," organized as a clickable knowl
 
 ## What it is
 
-555 pages covering 207 remedies (herbs, supplements, drugs), 77 conditions, 175 studies,
+553 pages covering 207 remedies (herbs, supplements, drugs), 77 conditions, 175 studies,
 60 active compounds, and 37 source citations (NCCIH, MedlinePlus, Cochrane, NIH ODS, MSK
 About Herbs). Every remedy×condition pair carries an evidence grade and links to the
 primary research or authoritative source behind it. The whole graph is downloadable as a

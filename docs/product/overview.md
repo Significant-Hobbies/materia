@@ -19,7 +19,7 @@ moats this drove.
 
 ## Scope
 
-**In scope:** interactive 2D layered explorer (3D-ready); per-entity content pages (body
+**In scope:** interactive 3D layered explorer (per-part mesh clicking; 2D SVG fallback); per-entity content pages (body
 part, condition, remedy, compound, study); evidence grading + study-level citations;
 search; the differentiator moats (knowledge graph + first-class compounds, herb×drug
 safety checker, tradition-vs-evidence overlay, evidence heatmap + comparisons,

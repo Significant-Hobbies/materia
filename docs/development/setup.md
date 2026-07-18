@@ -3,9 +3,8 @@
 ## Prerequisites
 
 - **Node 22** (pinned in `.nvmrc`). `nvm use` if you use nvm.
-- **npm** (lockfile is `package-lock.json`; a `pnpm-lock.yaml` also exists but
-  npm is the canonical package manager here — see
-  [`../operations/jobs/ci.md`](../operations/jobs/ci.md)).
+- **npm** (the only lockfile is `package-lock.json`; npm is the package manager
+  here — see [`../operations/jobs/ci.md`](../operations/jobs/ci.md)).
 - **Blender 4.x** — only if you're producing/editing 3D anatomy GLBs. See
   [`../operations/runbooks/add-3d-body-model.md`](../operations/runbooks/add-3d-body-model.md).
 - **`gh` CLI** authenticated — only if you're running a production deploy. See

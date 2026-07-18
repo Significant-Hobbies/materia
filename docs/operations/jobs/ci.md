@@ -27,7 +27,7 @@ the gate that production deploys depend on — keep it green. See
 
 ## Package manager
 
-The repo ships `package-lock.json` (npm) as canonical and CI uses `npm ci`. A
-`pnpm-lock.yaml` also exists in the working tree; do not introduce a second
-lockfile-driven CI path — npm is the fleet standard here. (If pnpm is adopted
-deliberately, update this page and CI together.)
+The repo ships `package-lock.json` (npm) as the only lockfile, and CI uses
+`npm ci`. npm is the package manager here — do not introduce a second
+lockfile-driven CI path. (If pnpm is adopted deliberately, update this page and
+CI together.)
