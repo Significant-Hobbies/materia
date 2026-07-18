@@ -17,7 +17,10 @@
     "lint": "biome check .",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "deploy": "node scripts/manual-deploy.mjs deploy.yml ci.yml"
+    "deploy": "node scripts/manual-deploy.mjs deploy.yml ci.yml",
+    "docs:check": "node scripts/docs-check.mjs",
+    "docs:dev": "blume dev",
+    "docs:build": "blume build"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.6",
