@@ -12,6 +12,7 @@ export const site = {
     { label: 'Compounds', href: '/compounds' },
     { label: 'Safety check', href: '/checker' },
     { label: 'Methodology', href: '/methodology' },
+    { label: 'FAQ', href: '/faq' },
   ],
 };
 

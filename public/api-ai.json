@@ -38,6 +38,13 @@
       "md": null,
       "kind": "static",
       "description": "How grades are assigned"
+    },
+    {
+      "id": "faq",
+      "url": "https://materia.significanthobbies.com/faq",
+      "md": null,
+      "kind": "static",
+      "description": "Common questions about Materia"
     }
   ],
   "auth": {
