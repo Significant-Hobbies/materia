@@ -16,6 +16,7 @@ historical timeline and feature inventory, see
 | Area | Path | What's there |
 | --- | --- | --- |
 | Product | [`product/`](product/) | What Materia is, positioning, trust posture, launch content |
+| How it works | [`architecture/how-it-works.md`](architecture/how-it-works.md) | Start here — a learning walkthrough of one query, body → condition → remedy → study, plus the key "why"s |
 | Architecture | [`architecture/overview.md`](architecture/overview.md) | System shape, build pipeline, layout |
 | Data model | [`architecture/data-model.md`](architecture/data-model.md) | The six-collection knowledge graph + citation invariant |
 | Explorer | [`architecture/explorer.md`](architecture/explorer.md) | The renderer contract + nanostores seam (2D↔3D) |
