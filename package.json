@@ -20,7 +20,9 @@
     "deploy": "node scripts/manual-deploy.mjs deploy.yml ci.yml",
     "docs:check": "node scripts/docs-check.mjs",
     "docs:dev": "blume dev",
-    "docs:build": "blume build"
+    "docs:build": "blume build",
+    "knip": "knip --no-exit-code --reporter symbols",
+    "knip:strict": "knip --reporter symbols"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.6",
@@ -33,13 +35,13 @@
     "@react-three/fiber": "^9.6.1",
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.8.0",
-    "cmdk": "^1.1.1",
     "lucide-react": "^0.460.0",
     "nanostores": "^0.11.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.7",
-    "three": "^0.171.0"
+    "three": "^0.171.0",
+    "three-stdlib": "^2.36.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
@@ -49,6 +51,7 @@
     "lightningcss": "^1.32.0",
     "typescript": "^5.8.3",
     "vitest": "^4.1.9",
-    "@vitest/coverage-v8": "^4.1.9"
+    "@vitest/coverage-v8": "^4.1.9",
+    "knip": "^6.6.3"
   }
 }

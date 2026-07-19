@@ -8,10 +8,7 @@ import type { SystemId } from '@/data/systems';
  *
  * Selection is MULTI-SELECT: `$selectedParts` holds svgIds in selection order.
  */
-export type ViewId = 'anterior' | 'posterior';
-
 export const $activeSystem = atom<SystemId>('skeletal');
-export const $activeView = atom<ViewId>('anterior');
 
 /** svgIds of the currently selected parts, in the order they were added. */
 export const $selectedParts = atom<string[]>([]);
@@ -41,7 +38,4 @@ export function setSystem(system: SystemId) {
   // Switching layers clears the selection (and closes the panel) — the previous
   // layer's parts may not exist on the new one.
   $selectedParts.set([]);
-}
-export function setView(view: ViewId) {
-  $activeView.set(view);
 }

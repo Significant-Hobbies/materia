@@ -36,7 +36,7 @@ export async function getExplorerParts(): Promise<ExplorerPart[]> {
 const GRADE_RANK: Record<string, number> = { A: 0, B: 1, C: 2, D: 3, insufficient: 4 };
 
 /** Remedies that have a graded efficacy claim for a given condition slug. */
-export async function remediesForCondition(conditionSlug: string) {
+async function remediesForCondition(conditionSlug: string) {
   const remedies = await getCollection('remedies');
   const hits = remedies
     .map((r) => {
@@ -49,7 +49,7 @@ export async function remediesForCondition(conditionSlug: string) {
 }
 
 /** Resolve a single efficacy claim's citations (studies + sources). */
-export async function resolveClaimCitations(claim: Remedy['data']['efficacy'][number]) {
+async function resolveClaimCitations(claim: Remedy['data']['efficacy'][number]) {
   const studies = claim.studies.length ? await getEntries(claim.studies) : [];
   const sources = claim.sources.length ? await getEntries(claim.sources) : [];
   return { studies, sources };
@@ -113,20 +113,6 @@ export async function getStudyCitedBy(studySlug: string) {
     }
   }
   return out;
-}
-
-/** All remedies that list an interaction with the given remedy (incoming edges). */
-export async function interactionsInvolving(remedySlug: string) {
-  const remedies = await getCollection('remedies');
-  const incoming: { remedy: Remedy; severity: string; mechanism: string }[] = [];
-  for (const r of remedies) {
-    for (const i of r.data.interactsWith) {
-      if (i.target.id === remedySlug) {
-        incoming.push({ remedy: r, severity: i.severity, mechanism: i.mechanism });
-      }
-    }
-  }
-  return incoming;
 }
 
 /** Flat remedy safety data for the client-side interaction checker. */
