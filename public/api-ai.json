@@ -1,14 +1,14 @@
 {
   "name": "Materia",
-  "version": "1",
+  "version": "2",
   "url": "https://materia.significanthobbies.com",
   "llms": "https://materia.significanthobbies.com/llms.txt",
   "llmsFull": "https://materia.significanthobbies.com/llms-full.txt",
-  "sitemap": "https://materia.significanthobbies.com/sitemap.xml",
+  "sitemap": "https://materia.significanthobbies.com/sitemap-index.xml",
   "robots": "https://materia.significanthobbies.com/robots.txt",
   "markdown": {
     "suffix": ".md",
-    "negotiation": true
+    "negotiation": false
   },
   "surfaces": [
     {
@@ -16,39 +16,133 @@
       "url": "https://materia.significanthobbies.com/",
       "md": "https://materia.significanthobbies.com/index.md",
       "kind": "static",
-      "description": "Product home"
+      "description": "Explore an evidence-graded, study-cited knowledge graph from body parts to conditions, remedies, compounds, and research."
     },
     {
-      "id": "parts",
-      "url": "https://materia.significanthobbies.com/parts",
-      "md": null,
+      "id": "about",
+      "url": "https://materia.significanthobbies.com/about",
+      "md": "https://materia.significanthobbies.com/about.md",
       "kind": "static",
-      "description": "By anatomical system"
+      "description": "Why Materia connects interactive anatomy with evidence-graded remedies and primary research."
     },
     {
-      "id": "remedies",
-      "url": "https://materia.significanthobbies.com/remedies",
-      "md": null,
+      "id": "checker",
+      "url": "https://materia.significanthobbies.com/checker",
+      "md": "https://materia.significanthobbies.com/checker.md",
       "kind": "static",
-      "description": "Evidence-graded remedies"
+      "description": "Check a local list of herbs, supplements, and drugs for recorded interactions, duplicate compounds, and shared risks."
     },
     {
-      "id": "methodology",
-      "url": "https://materia.significanthobbies.com/methodology",
-      "md": null,
+      "id": "compounds",
+      "url": "https://materia.significanthobbies.com/compounds",
+      "md": "https://materia.significanthobbies.com/compounds.md",
       "kind": "static",
-      "description": "How grades are assigned"
+      "description": "Browse the active compounds behind Materia remedies and follow their mechanisms and biological targets."
+    },
+    {
+      "id": "conditions",
+      "url": "https://materia.significanthobbies.com/conditions",
+      "md": "https://materia.significanthobbies.com/conditions.md",
+      "kind": "static",
+      "description": "Browse conditions, body-part relationships, red flags, and evidence-graded remedy claims."
+    },
+    {
+      "id": "data",
+      "url": "https://materia.significanthobbies.com/data",
+      "md": "https://materia.significanthobbies.com/data.md",
+      "kind": "static",
+      "description": "Download the public Materia knowledge graph as structured JSON."
+    },
+    {
+      "id": "disclaimer",
+      "url": "https://materia.significanthobbies.com/disclaimer",
+      "md": "https://materia.significanthobbies.com/disclaimer.md",
+      "kind": "static",
+      "description": "Understand the limits of Materia's educational, evidence-aggregation content."
     },
     {
       "id": "faq",
       "url": "https://materia.significanthobbies.com/faq",
-      "md": null,
+      "md": "https://materia.significanthobbies.com/faq.md",
       "kind": "static",
-      "description": "Common questions about Materia"
+      "description": "Answers about Materia's evidence grades, citations, safety posture, and data sources."
+    },
+    {
+      "id": "methodology",
+      "url": "https://materia.significanthobbies.com/methodology",
+      "md": "https://materia.significanthobbies.com/methodology.md",
+      "kind": "static",
+      "description": "How Materia assigns evidence grades per remedy and condition and links every efficacy claim to citations."
+    },
+    {
+      "id": "parts",
+      "url": "https://materia.significanthobbies.com/parts",
+      "md": "https://materia.significanthobbies.com/parts.md",
+      "kind": "static",
+      "description": "Browse anatomical entry points into Materia's condition and remedy graph."
+    },
+    {
+      "id": "remedies",
+      "url": "https://materia.significanthobbies.com/remedies",
+      "md": "https://materia.significanthobbies.com/remedies.md",
+      "kind": "static",
+      "description": "Browse herbs, supplements, nutrients, chemicals, practices, medicines, and drugs in the Materia corpus."
+    },
+    {
+      "id": "search",
+      "url": "https://materia.significanthobbies.com/search",
+      "md": "https://materia.significanthobbies.com/search.md",
+      "kind": "static",
+      "description": "Search public conditions, remedies, body parts, and compounds."
+    }
+  ],
+  "collections": [
+    {
+      "id": "body-parts",
+      "count": 24,
+      "urlTemplate": "https://materia.significanthobbies.com/part/{slug}",
+      "mdTemplate": "https://materia.significanthobbies.com/part/{slug}.md",
+      "source": "Checked-in Astro body-parts content collection"
+    },
+    {
+      "id": "conditions",
+      "count": 77,
+      "urlTemplate": "https://materia.significanthobbies.com/condition/{slug}",
+      "mdTemplate": "https://materia.significanthobbies.com/condition/{slug}.md",
+      "source": "Checked-in Astro conditions content collection"
+    },
+    {
+      "id": "remedies",
+      "count": 207,
+      "urlTemplate": "https://materia.significanthobbies.com/remedy/{slug}",
+      "mdTemplate": "https://materia.significanthobbies.com/remedy/{slug}.md",
+      "source": "Checked-in Astro remedies content collection"
+    },
+    {
+      "id": "compounds",
+      "count": 60,
+      "urlTemplate": "https://materia.significanthobbies.com/compound/{slug}",
+      "mdTemplate": "https://materia.significanthobbies.com/compound/{slug}.md",
+      "source": "Checked-in Astro compounds content collection"
+    },
+    {
+      "id": "studies",
+      "count": 175,
+      "urlTemplate": "https://materia.significanthobbies.com/study/{slug}",
+      "mdTemplate": "https://materia.significanthobbies.com/study/{slug}.md",
+      "source": "Checked-in Astro studies content collection"
+    }
+  ],
+  "dataResources": [
+    {
+      "id": "knowledge-graph",
+      "kind": "dataset",
+      "url": "https://materia.significanthobbies.com/data/materia-graph.json",
+      "description": "543 public collection nodes plus cited graph relationships"
     }
   ],
   "auth": {
     "public": true,
-    "notes": "Auth-walled app routes are not agent-indexed unless listed here."
+    "notes": "Materia has no accounts or private content routes. The safety checker keeps the visitor-selected stack in the browser. The 404 page and machine resources are not public HTML index entries."
   }
 }

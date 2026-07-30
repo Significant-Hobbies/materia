@@ -15,7 +15,13 @@ export default defineConfig({
   // Inline ALL stylesheets so first paint never blocks on an external CSS
   // request — content pages are text-LCP and should render instantly.
   build: { format: 'file', inlineStylesheets: 'always' },
-  integrations: [react(), mdx(), sitemap()],
+  integrations: [
+    react(),
+    mdx(),
+    sitemap({
+      filter: (page) => !page.endsWith('.md'),
+    }),
+  ],
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'viewport',

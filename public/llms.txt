@@ -1,21 +1,35 @@
 # Materia
 
-> Evidence-graded reference for remedies organized by body part — body → condition → remedy → compound → study, with citations.
+> Evidence-graded reference connecting body parts, conditions, remedies, compounds, and studies.
 
-## Product
+## Public pages
 
-- [Home](https://materia.significanthobbies.com/): Body explorer
-- [Parts](https://materia.significanthobbies.com/parts): By anatomical system
-- [Remedies](https://materia.significanthobbies.com/remedies): Evidence-graded remedies
-- [Methodology](https://materia.significanthobbies.com/methodology): How grades are assigned
-- [FAQ](https://materia.significanthobbies.com/faq): Common questions about Materia
+- [Materia](https://materia.significanthobbies.com/)
+- [About Materia](https://materia.significanthobbies.com/about)
+- [Interaction and safety checker](https://materia.significanthobbies.com/checker)
+- [Compounds](https://materia.significanthobbies.com/compounds)
+- [Conditions](https://materia.significanthobbies.com/conditions)
+- [Data and knowledge-graph export](https://materia.significanthobbies.com/data)
+- [Medical disclaimer](https://materia.significanthobbies.com/disclaimer)
+- [Frequently asked questions](https://materia.significanthobbies.com/faq)
+- [Evidence methodology](https://materia.significanthobbies.com/methodology)
+- [Body parts](https://materia.significanthobbies.com/parts)
+- [Remedies](https://materia.significanthobbies.com/remedies)
+- [Search Materia](https://materia.significanthobbies.com/search)
+
+## Collection templates
+
+- Body parts: https://materia.significanthobbies.com/part/{slug} and https://materia.significanthobbies.com/part/{slug}.md (24 entries)
+- Conditions: https://materia.significanthobbies.com/condition/{slug} and https://materia.significanthobbies.com/condition/{slug}.md (77 entries)
+- Remedies: https://materia.significanthobbies.com/remedy/{slug} and https://materia.significanthobbies.com/remedy/{slug}.md (207 entries)
+- Compounds: https://materia.significanthobbies.com/compound/{slug} and https://materia.significanthobbies.com/compound/{slug}.md (60 entries)
+- Studies: https://materia.significanthobbies.com/study/{slug} and https://materia.significanthobbies.com/study/{slug}.md (175 entries)
 
 ## Machine surfaces
 
-- [Agent catalog](https://materia.significanthobbies.com/api/ai): JSON inventory of public surfaces
-- [Homepage markdown](https://materia.significanthobbies.com/index.md): Product brief without JS
-- [This index](https://materia.significanthobbies.com/llms.txt)
+- [Agent catalog](https://materia.significanthobbies.com/api/ai)
+- [Sitemap](https://materia.significanthobbies.com/sitemap-index.xml)
+- [Knowledge graph JSON](https://materia.significanthobbies.com/data/materia-graph.json)
+- [Homepage Markdown](https://materia.significanthobbies.com/index.md)
 
-## Optional
-
-- [Foundry](https://sassmaker.com): Parent fleet showcase
+Materia is an educational evidence aggregator, not medical advice.

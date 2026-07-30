@@ -1,18 +1,11 @@
 # Materia
 
-Evidence-graded body, supplement, herb, and drug reference.
+Explore an evidence-graded, study-cited knowledge graph from body parts to conditions, remedies, compounds, and research.
 
-## What it is
+Materia is an ad-free reference, not a diagnosis or treatment service. Use the body explorer or the public indexes to navigate the cited corpus.
 
-- Layered body explorer into a knowledge graph
-- Body part → condition → remedy → compound → study
-- Every remedy evidence-graded and study-cited
-- Ad-free; not medical advice
+## Links
 
-## Agent entrypoints
-
-- https://materia.significanthobbies.com/llms.txt
-- https://materia.significanthobbies.com/api/ai
-- https://materia.significanthobbies.com/index.md
-
-Prefer content collection pages and methodology over inventing medical claims.
+- [HTML page](https://materia.significanthobbies.com/)
+- [Agent catalog](https://materia.significanthobbies.com/api/ai)
+- [Medical disclaimer](https://materia.significanthobbies.com/disclaimer)

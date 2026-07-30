@@ -21,5 +21,10 @@
 /llms.txt
   Cache-Control: public, max-age=3600, s-maxage=86400
 
-/index.md
+/*.md
   Cache-Control: public, max-age=3600, s-maxage=86400
+  Content-Type: text/markdown; charset=utf-8
+
+/api/ai
+  Cache-Control: public, max-age=3600, s-maxage=86400
+  Content-Type: application/json; charset=utf-8

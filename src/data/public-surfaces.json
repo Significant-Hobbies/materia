@@ -1,0 +1,98 @@
+[
+  {
+    "id": "home",
+    "path": "/",
+    "markdownPath": "/index.md",
+    "title": "Materia",
+    "description": "Explore an evidence-graded, study-cited knowledge graph from body parts to conditions, remedies, compounds, and research.",
+    "markdown": "Materia is an ad-free reference, not a diagnosis or treatment service. Use the body explorer or the public indexes to navigate the cited corpus."
+  },
+  {
+    "id": "about",
+    "path": "/about",
+    "markdownPath": "/about.md",
+    "title": "About Materia",
+    "description": "Why Materia connects interactive anatomy with evidence-graded remedies and primary research.",
+    "markdown": "Materia aggregates public evidence so readers can inspect how a remedy, condition, compound, and study connect. It does not replace clinical care."
+  },
+  {
+    "id": "checker",
+    "path": "/checker",
+    "markdownPath": "/checker.md",
+    "title": "Interaction and safety checker",
+    "description": "Check a local list of herbs, supplements, and drugs for recorded interactions, duplicate compounds, and shared risks.",
+    "markdown": "The checker runs in the browser against Materia's cited interaction graph. It does not diagnose, prescribe, or guarantee that an unlisted combination is safe."
+  },
+  {
+    "id": "compounds",
+    "path": "/compounds",
+    "markdownPath": "/compounds.md",
+    "title": "Compounds",
+    "description": "Browse the active compounds behind Materia remedies and follow their mechanisms and biological targets.",
+    "markdown": "Each compound page connects a named constituent to the remedies that contain it."
+  },
+  {
+    "id": "conditions",
+    "path": "/conditions",
+    "markdownPath": "/conditions.md",
+    "title": "Conditions",
+    "description": "Browse conditions, body-part relationships, red flags, and evidence-graded remedy claims.",
+    "markdown": "Condition pages describe the cited evidence and surface red flags that should prompt professional care."
+  },
+  {
+    "id": "data",
+    "path": "/data",
+    "markdownPath": "/data.md",
+    "title": "Data and knowledge-graph export",
+    "description": "Download the public Materia knowledge graph as structured JSON.",
+    "markdown": "The JSON export contains the same public collection nodes and typed relationships used by the website. It is a data resource, not medical advice."
+  },
+  {
+    "id": "disclaimer",
+    "path": "/disclaimer",
+    "markdownPath": "/disclaimer.md",
+    "title": "Medical disclaimer",
+    "description": "Understand the limits of Materia's educational, evidence-aggregation content.",
+    "markdown": "Materia provides general educational information. It is not medical advice, diagnosis, or a substitute for a qualified clinician."
+  },
+  {
+    "id": "faq",
+    "path": "/faq",
+    "markdownPath": "/faq.md",
+    "title": "Frequently asked questions",
+    "description": "Answers about Materia's evidence grades, citations, safety posture, and data sources.",
+    "markdown": "The FAQ explains how to interpret the reference and what Materia deliberately does not claim."
+  },
+  {
+    "id": "methodology",
+    "path": "/methodology",
+    "markdownPath": "/methodology.md",
+    "title": "Evidence methodology",
+    "description": "How Materia assigns evidence grades per remedy and condition and links every efficacy claim to citations.",
+    "markdown": "Grades apply to one remedy-condition claim at a time. Efficacy and safety are separate, and every efficacy claim must cite at least one study or source."
+  },
+  {
+    "id": "parts",
+    "path": "/parts",
+    "markdownPath": "/parts.md",
+    "title": "Body parts",
+    "description": "Browse anatomical entry points into Materia's condition and remedy graph.",
+    "markdown": "Body-part pages connect anatomy to related conditions and onward to cited remedy evidence."
+  },
+  {
+    "id": "remedies",
+    "path": "/remedies",
+    "markdownPath": "/remedies.md",
+    "title": "Remedies",
+    "description": "Browse herbs, supplements, nutrients, chemicals, practices, medicines, and drugs in the Materia corpus.",
+    "markdown": "A remedy page separates evidence by condition, preserves negative findings, and lists recorded safety information."
+  },
+  {
+    "id": "search",
+    "path": "/search",
+    "markdownPath": "/search.md",
+    "title": "Search Materia",
+    "description": "Search public conditions, remedies, body parts, and compounds.",
+    "markdown": "Search is a public navigation tool over the checked-in corpus. Agents can also follow the collection templates in the agent catalog."
+  }
+]

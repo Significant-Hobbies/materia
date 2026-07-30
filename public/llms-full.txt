@@ -1,46 +1,115 @@
 # Materia — full agent brief
 
-Evidence-graded reference for remedies organized by body part — body → condition → remedy → compound → study, with citations.
+Materia publishes 12 static public pages and 543 collection pages: 24 body parts, 77 conditions, 207 remedies, 60 compounds, 175 studies.
 
-## Index
+## Materia
 
-# Materia
+Explore an evidence-graded, study-cited knowledge graph from body parts to conditions, remedies, compounds, and research.
 
-Evidence-graded body, supplement, herb, and drug reference.
+Materia is an ad-free reference, not a diagnosis or treatment service. Use the body explorer or the public indexes to navigate the cited corpus.
 
-## What it is
+- HTML: https://materia.significanthobbies.com/
+- Markdown: https://materia.significanthobbies.com/index.md
 
-- Layered body explorer into a knowledge graph
-- Body part → condition → remedy → compound → study
-- Every remedy evidence-graded and study-cited
-- Ad-free; not medical advice
+## About Materia
 
-## Agent entrypoints
+Why Materia connects interactive anatomy with evidence-graded remedies and primary research.
 
-- https://materia.significanthobbies.com/llms.txt
-- https://materia.significanthobbies.com/api/ai
-- https://materia.significanthobbies.com/index.md
+Materia aggregates public evidence so readers can inspect how a remedy, condition, compound, and study connect. It does not replace clinical care.
 
-Prefer content collection pages and methodology over inventing medical claims.
+- HTML: https://materia.significanthobbies.com/about
+- Markdown: https://materia.significanthobbies.com/about.md
 
-## Product links
+## Interaction and safety checker
 
-- Home: https://materia.significanthobbies.com/ — Body explorer
-- Parts: https://materia.significanthobbies.com/parts — By anatomical system
-- Remedies: https://materia.significanthobbies.com/remedies — Evidence-graded remedies
-- Methodology: https://materia.significanthobbies.com/methodology — How grades are assigned
-- FAQ: https://materia.significanthobbies.com/faq — Common questions about Materia
+Check a local list of herbs, supplements, and drugs for recorded interactions, duplicate compounds, and shared risks.
 
-## Machine surfaces
+The checker runs in the browser against Materia's cited interaction graph. It does not diagnose, prescribe, or guarantee that an unlisted combination is safe.
 
-- https://materia.significanthobbies.com/llms.txt
-- https://materia.significanthobbies.com/llms-full.txt
-- https://materia.significanthobbies.com/api/ai
-- https://materia.significanthobbies.com/index.md
-- https://materia.significanthobbies.com/sitemap.xml
-- https://materia.significanthobbies.com/robots.txt
+- HTML: https://materia.significanthobbies.com/checker
+- Markdown: https://materia.significanthobbies.com/checker.md
 
-## Contact / fleet
+## Compounds
 
-- Fleet: https://sassmaker.com
-- Agent email for directory verification: sarthakagrawal@agentmail.to
+Browse the active compounds behind Materia remedies and follow their mechanisms and biological targets.
+
+Each compound page connects a named constituent to the remedies that contain it.
+
+- HTML: https://materia.significanthobbies.com/compounds
+- Markdown: https://materia.significanthobbies.com/compounds.md
+
+## Conditions
+
+Browse conditions, body-part relationships, red flags, and evidence-graded remedy claims.
+
+Condition pages describe the cited evidence and surface red flags that should prompt professional care.
+
+- HTML: https://materia.significanthobbies.com/conditions
+- Markdown: https://materia.significanthobbies.com/conditions.md
+
+## Data and knowledge-graph export
+
+Download the public Materia knowledge graph as structured JSON.
+
+The JSON export contains the same public collection nodes and typed relationships used by the website. It is a data resource, not medical advice.
+
+- HTML: https://materia.significanthobbies.com/data
+- Markdown: https://materia.significanthobbies.com/data.md
+
+## Medical disclaimer
+
+Understand the limits of Materia's educational, evidence-aggregation content.
+
+Materia provides general educational information. It is not medical advice, diagnosis, or a substitute for a qualified clinician.
+
+- HTML: https://materia.significanthobbies.com/disclaimer
+- Markdown: https://materia.significanthobbies.com/disclaimer.md
+
+## Frequently asked questions
+
+Answers about Materia's evidence grades, citations, safety posture, and data sources.
+
+The FAQ explains how to interpret the reference and what Materia deliberately does not claim.
+
+- HTML: https://materia.significanthobbies.com/faq
+- Markdown: https://materia.significanthobbies.com/faq.md
+
+## Evidence methodology
+
+How Materia assigns evidence grades per remedy and condition and links every efficacy claim to citations.
+
+Grades apply to one remedy-condition claim at a time. Efficacy and safety are separate, and every efficacy claim must cite at least one study or source.
+
+- HTML: https://materia.significanthobbies.com/methodology
+- Markdown: https://materia.significanthobbies.com/methodology.md
+
+## Body parts
+
+Browse anatomical entry points into Materia's condition and remedy graph.
+
+Body-part pages connect anatomy to related conditions and onward to cited remedy evidence.
+
+- HTML: https://materia.significanthobbies.com/parts
+- Markdown: https://materia.significanthobbies.com/parts.md
+
+## Remedies
+
+Browse herbs, supplements, nutrients, chemicals, practices, medicines, and drugs in the Materia corpus.
+
+A remedy page separates evidence by condition, preserves negative findings, and lists recorded safety information.
+
+- HTML: https://materia.significanthobbies.com/remedies
+- Markdown: https://materia.significanthobbies.com/remedies.md
+
+## Search Materia
+
+Search public conditions, remedies, body parts, and compounds.
+
+Search is a public navigation tool over the checked-in corpus. Agents can also follow the collection templates in the agent catalog.
+
+- HTML: https://materia.significanthobbies.com/search
+- Markdown: https://materia.significanthobbies.com/search.md
+
+## Content and safety boundary
+
+The checked-in Astro content collections are the source for the public HTML, Markdown, and knowledge-graph export. Materia does not diagnose, prescribe, or replace clinical care. Every efficacy claim must carry at least one citation, and grades apply per remedy-condition pair rather than globally.
