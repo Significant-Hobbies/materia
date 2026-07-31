@@ -1,8 +1,10 @@
+# public-discovery-coverage Specification
+
 ## Purpose
 
 Ensure every canonical public Materia page is discoverable by search engines and available to non-JavaScript agents through source-derived, mutually consistent artifacts.
 
-## ADDED Requirements
+## Requirements
 
 ### Requirement: Canonical public route inventory
 The system SHALL derive one canonical inventory containing every public HTML route and SHALL exclude error, operational, redirect-only, and data-only routes.
@@ -30,7 +32,7 @@ The system SHALL expose robots, sitemap, canonical metadata, Open Graph metadata
 The system SHALL expose a plain Markdown representation for every canonical public HTML route without requiring JavaScript.
 
 #### Scenario: Agent requests a Markdown mirror
-- **WHEN** an agent appends `.md` to a canonical public route
+- **WHEN** an agent requests the Markdown URL cataloged for a canonical public route
 - **THEN** it receives a successful Markdown response containing the page title, canonical URL, meaningful page content, and relevant graph links
 
 ### Requirement: Compact agent catalog
@@ -46,4 +48,3 @@ The system MUST detect missing, duplicate, stale, or non-public entries across t
 #### Scenario: A new canonical route lacks agent coverage
 - **WHEN** validation runs after a public route is added without its required mirror or catalog entry
 - **THEN** validation fails with the uncovered route identified
-

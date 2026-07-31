@@ -1,6 +1,6 @@
 # Materia — PROJECT STATUS
 
-Last updated: 2026-06-28
+Last updated: 2026-08-01
 
 ## Why / What
 
@@ -48,6 +48,7 @@ The data model is the single source of truth: `src/content.config.ts` (six colle
 
 | Date | Milestone |
 |------|-----------|
+| 2026-08-01 | Completed public discovery coverage for all 555 canonical routes: source-derived sitemaps, absolute canonical/Open Graph metadata, a compact `/api/ai` catalog, aligned `llms.txt` surfaces, and a no-JavaScript Markdown mirror for every page. |
 | 2026-08-01 | Added bounded 3D explorer recovery: GLTF/WebGL failures or a 12-second load timeout now reveal the existing interactive 2D body with an explicit retry instead of leaving visitors on an endless loading state. |
 | 2026-06-21 | Phase 0 scaffold (Astro + Tailwind v4 + Biome + Cloudflare config), green build |
 | 2026-06-21 | Knowledge-graph data model: 6 collections, Zod + `reference()`, build-enforced citations |
@@ -100,6 +101,7 @@ Proprietary DBs (Examine/NatMed) are NOT scraped — copyright + moat.
 ### Platform & deploy
 - Astro 5 static, `format: file` (no trailing-slash redirects), inlined critical CSS.
 - Tailwind v4 + Lightning CSS; Biome; Cloudflare Pages config; sitemap.
+- One source-derived inventory covers all 555 canonical public routes across sitemap, `/api/ai`, `llms.txt`, absolute metadata, and route-level Markdown mirrors; coverage tests prevent drift and keep machine-only surfaces out of search results.
 
 ### Data model (the knowledge graph)
 - Six cross-referenced collections with Zod schemas; `reference()` enforces integrity at build.
