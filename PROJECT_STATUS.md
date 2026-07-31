@@ -48,6 +48,7 @@ The data model is the single source of truth: `src/content.config.ts` (six colle
 
 | Date | Milestone |
 |------|-----------|
+| 2026-08-01 | Added bounded 3D explorer recovery: GLTF/WebGL failures or a 12-second load timeout now reveal the existing interactive 2D body with an explicit retry instead of leaving visitors on an endless loading state. |
 | 2026-06-21 | Phase 0 scaffold (Astro + Tailwind v4 + Biome + Cloudflare config), green build |
 | 2026-06-21 | Knowledge-graph data model: 6 collections, Zod + `reference()`, build-enforced citations |
 | 2026-06-21 | Classy "apothecary" design system + base shell (layout, nav, footer, disclaimer) |
