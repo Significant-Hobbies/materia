@@ -19,7 +19,7 @@ const { remedy } = Astro.props;
 const { efficacy, compounds, interactions } = await getRemedyView(remedy);
 const { Content } = await render(remedy);
 const tradition = efficacy.flatMap((e) => e.tradition);
-const canonical = new URL(Astro.url.pathname, site.url).href;
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '') || '/', site.url).href;
 const remedySchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',

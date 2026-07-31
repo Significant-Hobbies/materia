@@ -15,7 +15,22 @@ export default defineConfig({
   // Inline ALL stylesheets so first paint never blocks on an external CSS
   // request — content pages are text-LCP and should render instantly.
   build: { format: 'file', inlineStylesheets: 'always' },
-  integrations: [react(), mdx(), sitemap()],
+  integrations: [
+    react(),
+    mdx(),
+    sitemap({
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        return (
+          !path.endsWith('.md') &&
+          path !== '/api/ai' &&
+          path !== '/llms.txt' &&
+          path !== '/llms-full.txt' &&
+          path !== '/data/materia-graph.json'
+        );
+      },
+    }),
+  ],
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'viewport',

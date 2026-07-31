@@ -15,7 +15,7 @@ const { condition } = Astro.props;
 const { bodyParts, remedies } = await getConditionView(condition);
 const { Content } = await render(condition);
 const redFlag = condition.data.severity === 'see-a-doctor' || condition.data.redFlags.length > 0;
-const canonical = new URL(Astro.url.pathname, site.url).href;
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '') || '/', site.url).href;
 const conditionSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
