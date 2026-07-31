@@ -397,10 +397,12 @@ function GltfBody({
   interactive,
   url,
   focusRef,
+  onReady,
 }: {
   interactive: Set<string>;
   url: string;
   focusRef: { current: THREE.Vector3 | null };
+  onReady: () => void;
 }) {
   // Draco-compressed GLBs; decoder is self-hosted at /draco/ (no external CDN).
   const { scene } = useGLTF(url, '/draco/');
@@ -455,6 +457,8 @@ function GltfBody({
     const map = new Map(list.map((it) => [it.mesh.uuid, it]));
     return { root: wrap, meshes: list, baseByUuid: map };
   }, [scene, interactive]);
+
+  useEffect(() => onReady(), [onReady]);
 
   // Recolor on selection / hovered-region change (not on mouse move). Handles
   // both mapped-region selections (by slug) and structure selections (by name).
@@ -572,9 +576,11 @@ function HoverLabel() {
 export default function ThreeBody({
   parts,
   modelUrl,
+  onReady,
 }: {
   parts: ExplorerPart[];
   modelUrl: string;
+  onReady: () => void;
 }) {
   const interactive = useMemo(() => new Set(parts.map((p) => p.svgId)), [parts]);
   const [ready, setReady] = useState(false);
@@ -613,7 +619,12 @@ export default function ThreeBody({
         <Suspense fallback={null}>
           <Bounds fit clip margin={1.05}>
             <SlowSpin>
-              <GltfBody interactive={interactive} url={modelUrl} focusRef={focus} />
+              <GltfBody
+                interactive={interactive}
+                url={modelUrl}
+                focusRef={focus}
+                onReady={onReady}
+              />
             </SlowSpin>
           </Bounds>
         </Suspense>

@@ -1,4 +1,13 @@
-import { lazy, Suspense } from 'react';
+import {
+  Component,
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useState,
+  type ErrorInfo,
+  type ReactNode,
+} from 'react';
 import { useStore } from '@nanostores/react';
 import AnatomyBody from './AnatomyBody';
 import LayerToggle from './LayerToggle';
@@ -9,6 +18,93 @@ import { SYSTEM_BY_ID } from '@/data/systems';
 
 // three.js is only pulled in when a real model exists — keeps the 2D path light.
 const ThreeBody = lazy(() => import('./ThreeBody'));
+
+class ExplorerErrorBoundary extends Component<
+  { children: ReactNode; onError: () => void },
+  { failed: boolean }
+> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.error('[BodyExplorer] 3D renderer failed', error, info);
+    this.props.onError();
+  }
+
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
+
+function ThreeBodyWithRecovery({
+  parts,
+  modelUrl,
+  system,
+}: {
+  parts: ExplorerPart[];
+  modelUrl: string;
+  system: string;
+}) {
+  const [attempt, setAttempt] = useState(0);
+  const [ready, setReady] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    if (ready || failed) return;
+    const timeout = window.setTimeout(() => setFailed(true), 12_000);
+    return () => window.clearTimeout(timeout);
+  }, [failed, ready]);
+
+  const handleReady = useCallback(() => setReady(true), []);
+
+  if (failed) {
+    return (
+      <div className="relative w-full">
+        <AnatomyBody parts={parts} />
+        <div
+          role="alert"
+          className="absolute inset-x-4 bottom-10 rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)]/95 p-3 text-center text-xs text-[var(--color-muted)] shadow"
+        >
+          <p>The 3D body could not load. The interactive 2D explorer is available instead.</p>
+          <button
+            type="button"
+            onClick={() => {
+              setReady(false);
+              setFailed(false);
+              setAttempt((value) => value + 1);
+            }}
+            className="mt-2 rounded-md border border-[var(--color-line)] px-3 py-1 font-medium text-[var(--color-ink)] hover:bg-[var(--color-base)]"
+          >
+            Retry 3D view
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <ExplorerErrorBoundary key={`${system}-${attempt}`} onError={() => setFailed(true)}>
+      <Suspense
+        fallback={
+          <div className="grid h-[560px] w-full place-items-center text-xs text-[var(--color-faint)]">
+            Loading 3D body…
+          </div>
+        }
+      >
+        <ThreeBody
+          key={`${system}-${attempt}`}
+          parts={parts}
+          modelUrl={modelUrl}
+          onReady={handleReady}
+        />
+      </Suspense>
+      {!ready && <span className="sr-only">Loading the interactive 3D model</span>}
+    </ExplorerErrorBoundary>
+  );
+}
 
 /**
  * The interactive explorer island. `models` maps an anatomical system → its GLB
@@ -40,15 +136,12 @@ export default function BodyExplorer({
 
       <div className="relative grid place-items-center bg-[var(--color-base)] p-6">
         {modelUrl ? (
-          <Suspense
-            fallback={
-              <div className="grid h-[560px] w-full place-items-center text-xs text-[var(--color-faint)]">
-                Loading 3D body…
-              </div>
-            }
-          >
-            <ThreeBody key={system} parts={activeParts} modelUrl={modelUrl} />
-          </Suspense>
+          <ThreeBodyWithRecovery
+            key={system}
+            parts={activeParts}
+            modelUrl={modelUrl}
+            system={system}
+          />
         ) : (
           <AnatomyBody parts={activeParts} />
         )}
