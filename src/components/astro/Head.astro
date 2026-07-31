@@ -12,7 +12,8 @@ interface Props {
 
 const { title, description = site.description, bare = false, jsonld } = Astro.props;
 const fullTitle = !title ? `${site.name} — ${site.tagline}` : bare ? title : `${title} · ${site.name}`;
-const canonical = new URL(Astro.url.pathname, site.url).href;
+const canonicalPath = Astro.url.pathname.replace(/\.html$/, '') || '/';
+const canonical = new URL(canonicalPath, site.url).href;
 
 const websiteSchema = {
   '@context': 'https://schema.org',
