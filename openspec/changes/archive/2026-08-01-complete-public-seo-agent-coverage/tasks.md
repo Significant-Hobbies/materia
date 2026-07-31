@@ -18,4 +18,4 @@
 ## 4. Completion
 
 - [x] 4.1 Archive the completed OpenSpec change and update `PROJECT_STATUS.md` with shipped product truth.
-- [ ] 4.2 Open and merge a passing pull request with `Closes #5`, without deploying production.
+- [x] 4.2 Open and merge a passing pull request with `Closes #5`, without deploying production.
