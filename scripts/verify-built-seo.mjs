@@ -1,15 +1,30 @@
 #!/usr/bin/env node
 
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const origin = 'https://materia.significanthobbies.com';
-const sitemapFiles = readdirSync('dist').filter(
-  (name) => name.startsWith('sitemap-') && name !== 'sitemap-index.xml' && name.endsWith('.xml')
-);
-const urls = sitemapFiles.flatMap((name) => {
-  const xml = readFileSync(`dist/${name}`, 'utf8');
+const seenSitemaps = new Set();
+
+function locations(xml) {
   return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-});
+}
+
+function collectSitemap(filename) {
+  if (seenSitemaps.has(filename)) return [];
+  seenSitemaps.add(filename);
+  const xml = readFileSync(`dist/${filename}`, 'utf8');
+  const entries = locations(xml);
+  if (!xml.includes('<sitemapindex')) return entries;
+  return entries.flatMap((entry) => collectSitemap(new URL(entry).pathname.slice(1)));
+}
+
+const urls = [
+  ...new Set(
+    ['sitemap-index.xml', 'sitemap.xml']
+      .filter((filename) => existsSync(`dist/${filename}`))
+      .flatMap(collectSitemap)
+  ),
+];
 const issues = [];
 
 for (const value of urls) {

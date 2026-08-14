@@ -48,7 +48,7 @@ The data model is the single source of truth: `src/content.config.ts` (six colle
 
 | Date | Milestone |
 |------|-----------|
-| 2026-08-14 | Search discovery hardened: the build verifies all 555 sitemap URLs against generated HTML canonicals and Open Graph URLs, and the exact-SHA Pages deployment repeats that verification against production. |
+| 2026-08-14 | Search discovery hardened: the canonical and legacy sitemap endpoints now resolve to the same 555-page corpus; the build verifies every URL against generated HTML canonicals and Open Graph URLs, and the exact-SHA Pages deployment repeats that verification against production. |
 | 2026-08-01 | Completed public discovery coverage for all 555 canonical routes: source-derived sitemaps, absolute canonical/Open Graph metadata, a compact `/api/ai` catalog, aligned `llms.txt` surfaces, and a no-JavaScript Markdown mirror for every page. |
 | 2026-08-01 | Added bounded 3D explorer recovery: GLTF/WebGL failures or a 12-second load timeout now reveal the existing interactive 2D body with an explicit retry instead of leaving visitors on an endless loading state. |
 | 2026-06-21 | Phase 0 scaffold (Astro + Tailwind v4 + Biome + Cloudflare config), green build |
@@ -101,7 +101,7 @@ Proprietary DBs (Examine/NatMed) are NOT scraped — copyright + moat.
 
 ### Platform & deploy
 - Astro 5 static, `format: file` (no trailing-slash redirects), inlined critical CSS.
-- Build and post-deploy checks require every sitemap entry to resolve directly and match its generated canonical and `og:url`; Pages deployments record the exact main commit SHA.
+- Build and post-deploy checks require both sitemap entrypoints to resolve to the same corpus and every page to resolve directly with matching canonical and `og:url`; Pages deployments record the exact main commit SHA.
 - Tailwind v4 + Lightning CSS; Biome; Cloudflare Pages config; sitemap.
 - One source-derived inventory covers all 555 canonical public routes across sitemap, `/api/ai`, `llms.txt`, absolute metadata, and route-level Markdown mirrors; coverage tests prevent drift and keep machine-only surfaces out of search results.
 
