@@ -29,8 +29,10 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # wrangler.jsonc declares `pages_build_output_dir: dist`, so the
           # output dir is read from config; project name is pinned explicitly.
-          command: pages deploy dist --project-name=materia --branch=main --commit-dirty=true
+          command: pages deploy dist --project-name=materia --branch=main --commit-hash=${{ github.sha }} --commit-dirty=false
       - name: Smoke production
         run: |
           set -euo pipefail
           curl --fail --retry 5 --retry-delay 5 --max-time 20 "https://materia.significanthobbies.com/" >/dev/null
+      - name: Verify every public sitemap URL
+        run: node scripts/verify-live-seo.mjs https://materia.significanthobbies.com/sitemap-index.xml
