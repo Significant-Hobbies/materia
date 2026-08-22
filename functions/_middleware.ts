@@ -292,7 +292,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   ) {
     const mdPath = pathname === '/' ? '/index.md' : `${normalizePath(pathname)}.md`;
     const mdUrl = new URL(mdPath, url);
-    const mdReq = new Request(mdUrl.toString(), request);
+    const mdReq = new Request(mdUrl.toString(), { method: request.method });
     const mdResp = await env.ASSETS.fetch(mdReq);
     if (mdResp.status === 200) {
       const headers = withRateLimit(new Headers(mdResp.headers));
