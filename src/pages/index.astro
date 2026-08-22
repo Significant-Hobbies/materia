@@ -27,8 +27,6 @@ for (const [sys, file] of Object.entries(MODEL_FILES)) {
     models[sys] = `/models/${file}?v=hd`;
   }
 }
-const hasAnyModel = Object.keys(models).length > 0;
-
 // FAQ content — short, factual, self-contained passages (35–60 words each)
 // optimized for Generative Engine Optimization (AI search extractability).
 const faqs = [
@@ -114,7 +112,7 @@ const fleet = [
     <div style="animation: rise 0.6s var(--ease-out-expo) both">
       <p class="eyebrow mb-4">Evidence-graded · Ad-free · Fully cited</p>
       <h1 class="text-4xl leading-[1.05] sm:text-5xl">
-        The whole body,<br /><span class="text-accent">evidence-graded.</span>
+        Materia — The whole body,<br /><span class="text-accent">evidence-graded.</span>
       </h1>
       <p class="prose-materia mt-6 text-lg text-muted">
         Explore a layered human body, click any part, and see the herbs, supplements, and drugs

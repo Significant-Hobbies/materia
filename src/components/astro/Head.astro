@@ -26,6 +26,16 @@ const websiteSchema = {
     '@type': 'Organization',
     name: site.name,
     url: site.url,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      url: site.url,
+      email: 'sarthakagrawal@agentmail.to',
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'US',
+    },
   },
 };
 
