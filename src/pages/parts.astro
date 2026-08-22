@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { SYSTEMS, SYSTEM_BY_ID, type SystemId } from '@/data/systems';
+import { SYSTEMS } from '@/data/systems';
 
 const parts = (await getCollection('bodyParts')).sort(
   (a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name)

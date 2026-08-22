@@ -15,7 +15,11 @@ import { dirname, resolve } from 'node:path';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REMEDIES_DIR = resolve(HERE, '../../src/content/remedies');
 
-const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+const slugify = (s) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const titleCase = (s) => s.replace(/\b\w/g, (c) => c.toUpperCase());
 const yamlList = (arr) => `[${arr.map((a) => `"${a.replace(/"/g, '\\"')}"`).join(', ')}]`;
@@ -126,8 +130,14 @@ const DRUGS = {
 // additive-risk-class matcher (bleeding / serotonin / sedation / blood sugar /
 // blood pressure / CYP). This is what makes a stacked herb+drug combo flag.
 const RISK = {
-  ibuprofen: ['Antiplatelet effect — additive bleeding risk with anticoagulants', 'May raise blood pressure'],
-  naproxen: ['Antiplatelet effect — additive bleeding risk with anticoagulants', 'May raise blood pressure'],
+  ibuprofen: [
+    'Antiplatelet effect — additive bleeding risk with anticoagulants',
+    'May raise blood pressure',
+  ],
+  naproxen: [
+    'Antiplatelet effect — additive bleeding risk with anticoagulants',
+    'May raise blood pressure',
+  ],
   aspirin: ['Antiplatelet / salicylate — additive bleeding risk', 'Anticoagulant interactions'],
   celecoxib: ['Antiplatelet/bleeding risk with anticoagulants', 'May raise blood pressure'],
   metformin: ['Additive blood sugar lowering with other antidiabetic agents'],
@@ -144,12 +154,17 @@ const RISK = {
   apixaban: ['Anticoagulant — additive bleeding risk', 'CYP3A4 / P-glycoprotein substrate'],
   rivaroxaban: ['Anticoagulant — additive bleeding risk', 'CYP3A4 / P-glycoprotein substrate'],
   levothyroxine: ['Absorption reduced by calcium, iron, and magnesium'],
-  sertraline: ['Serotonergic antidepressant — serotonin syndrome risk with other serotonergic agents'],
+  sertraline: [
+    'Serotonergic antidepressant — serotonin syndrome risk with other serotonergic agents',
+  ],
   fluoxetine: ['Serotonergic antidepressant (SSRI) — serotonin syndrome risk', 'CYP inhibitor'],
   escitalopram: ['Serotonergic antidepressant (SSRI) — serotonin syndrome risk'],
   citalopram: ['Serotonergic antidepressant (SSRI) — serotonin syndrome risk'],
   duloxetine: ['Serotonergic antidepressant (SNRI) — serotonin syndrome risk'],
-  amitriptyline: ['Serotonergic antidepressant — serotonin syndrome risk', 'Sedative / CNS depressant'],
+  amitriptyline: [
+    'Serotonergic antidepressant — serotonin syndrome risk',
+    'Sedative / CNS depressant',
+  ],
   tramadol: ['Serotonergic opioid — serotonin syndrome risk', 'Sedative / CNS depressant'],
   ciprofloxacin: ['Absorption reduced by calcium, iron, and magnesium'],
   doxycycline: ['Absorption reduced by calcium, iron, and magnesium'],
@@ -183,13 +198,22 @@ const RISK = {
   dapagliflozin: ['Additive blood sugar lowering'],
   pioglitazone: ['Additive blood sugar lowering'],
   paroxetine: ['Serotonergic antidepressant (SSRI) — serotonin syndrome risk', 'CYP2D6 inhibitor'],
-  venlafaxine: ['Serotonergic antidepressant (SNRI) — serotonin syndrome risk', 'May raise blood pressure'],
-  mirtazapine: ['Serotonergic antidepressant — serotonin syndrome risk', 'Sedative / CNS depressant'],
+  venlafaxine: [
+    'Serotonergic antidepressant (SNRI) — serotonin syndrome risk',
+    'May raise blood pressure',
+  ],
+  mirtazapine: [
+    'Serotonergic antidepressant — serotonin syndrome risk',
+    'Sedative / CNS depressant',
+  ],
   diazepam: ['Sedative / CNS depressant — additive sedation'],
   lorazepam: ['Sedative / CNS depressant — additive sedation'],
   alprazolam: ['Sedative / CNS depressant — additive sedation'],
   zolpidem: ['Sedative / CNS depressant — additive sedation'],
-  codeine: ['Sedative / CNS depressant — additive sedation', 'Serotonergic — serotonin syndrome risk'],
+  codeine: [
+    'Sedative / CNS depressant — additive sedation',
+    'Serotonergic — serotonin syndrome risk',
+  ],
   morphine: ['Sedative / CNS depressant — additive sedation'],
   oxycodone: ['Sedative / CNS depressant — additive sedation'],
   dabigatran: ['Anticoagulant — additive bleeding risk', 'P-glycoprotein substrate'],
@@ -224,10 +248,14 @@ const existing = new Set(
   existsSync(REMEDIES_DIR) ? readdirSync(REMEDIES_DIR).map((f) => f.replace(/\.md$/, '')) : []
 );
 
-let written = 0, skipped = 0;
+let written = 0,
+  skipped = 0;
 for (const [generic, cls] of Object.entries(DRUGS)) {
   const slug = slugify(generic);
-  if (existing.has(slug)) { skipped++; continue; }
+  if (existing.has(slug)) {
+    skipped++;
+    continue;
+  }
   const aliases = await brands(generic);
   await sleep(300);
   const name = titleCase(generic);

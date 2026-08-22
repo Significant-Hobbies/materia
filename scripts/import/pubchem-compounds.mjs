@@ -24,11 +24,36 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // name · classification · neutral one-line summary (curated by us) · aliases
 const SEED = [
-  ['Quercetin', 'flavonol (polyphenol)', 'A flavonol antioxidant abundant in onions, apples, and tea.', []],
-  ['Resveratrol', 'stilbenoid polyphenol', 'A polyphenol from grapes and red wine studied for metabolic and cardiovascular effects.', []],
-  ['Epigallocatechin gallate', 'catechin (flavan-3-ol)', 'The main catechin of green tea.', ['EGCG']],
-  ['Sulforaphane', 'isothiocyanate', 'An isothiocyanate from broccoli and other cruciferous vegetables.', []],
-  ['Lutein', 'xanthophyll carotenoid', 'A carotenoid pigment concentrated in the macula of the eye.', []],
+  [
+    'Quercetin',
+    'flavonol (polyphenol)',
+    'A flavonol antioxidant abundant in onions, apples, and tea.',
+    [],
+  ],
+  [
+    'Resveratrol',
+    'stilbenoid polyphenol',
+    'A polyphenol from grapes and red wine studied for metabolic and cardiovascular effects.',
+    [],
+  ],
+  [
+    'Epigallocatechin gallate',
+    'catechin (flavan-3-ol)',
+    'The main catechin of green tea.',
+    ['EGCG'],
+  ],
+  [
+    'Sulforaphane',
+    'isothiocyanate',
+    'An isothiocyanate from broccoli and other cruciferous vegetables.',
+    [],
+  ],
+  [
+    'Lutein',
+    'xanthophyll carotenoid',
+    'A carotenoid pigment concentrated in the macula of the eye.',
+    [],
+  ],
   ['Lycopene', 'carotenoid', 'The red carotenoid pigment of tomatoes.', []],
   ['Genistein', 'isoflavone', 'A soy isoflavone with weak estrogen-like activity.', []],
   ['Hesperidin', 'flavanone glycoside', 'A citrus-peel flavonoid.', []],
@@ -39,18 +64,43 @@ const SEED = [
   ['Ellagic acid', 'polyphenol', 'A polyphenol found in berries and pomegranate.', []],
   ['Chlorogenic acid', 'hydroxycinnamic acid ester', 'A polyphenol abundant in coffee.', []],
   ['Ferulic acid', 'hydroxycinnamic acid', 'A plant cell-wall antioxidant phenolic.', []],
-  ['Piperine', 'alkaloid', 'The pungent alkaloid of black pepper, studied for boosting absorption of other compounds.', []],
+  [
+    'Piperine',
+    'alkaloid',
+    'The pungent alkaloid of black pepper, studied for boosting absorption of other compounds.',
+    [],
+  ],
   ['Eugenol', 'phenylpropanoid', 'The aromatic compound of clove oil.', []],
   ['Thymol', 'monoterpene phenol', 'An antiseptic aromatic compound from thyme.', []],
   ['Carvacrol', 'monoterpene phenol', 'An antimicrobial aromatic compound from oregano.', []],
-  ['Eucalyptol', 'monoterpenoid ether', 'The main component of eucalyptus oil.', ['cineole', '1,8-cineole']],
+  [
+    'Eucalyptol',
+    'monoterpenoid ether',
+    'The main component of eucalyptus oil.',
+    ['cineole', '1,8-cineole'],
+  ],
   ['Valerenic acid', 'sesquiterpenoid', 'A sedative constituent of valerian root.', []],
   ['Hypericin', 'naphthodianthrone', 'A red pigment of St John’s wort.', []],
-  ['Bisabolol', 'sesquiterpene alcohol', 'A soothing constituent of chamomile.', ['alpha-bisabolol']],
+  [
+    'Bisabolol',
+    'sesquiterpene alcohol',
+    'A soothing constituent of chamomile.',
+    ['alpha-bisabolol'],
+  ],
   ['Naringenin', 'flavanone', 'A citrus flavanone (notably grapefruit).', []],
   ['Baicalin', 'flavone glycoside', 'A flavonoid from Scutellaria (skullcap).', []],
-  ['Glycyrrhizin', 'triterpenoid saponin', 'The sweet saponin of licorice root.', ['glycyrrhizic acid']],
-  ['Gymnemic acid', 'triterpenoid saponin', 'Saponins from Gymnema sylvestre studied for blood sugar and sweet-taste suppression.', []],
+  [
+    'Glycyrrhizin',
+    'triterpenoid saponin',
+    'The sweet saponin of licorice root.',
+    ['glycyrrhizic acid'],
+  ],
+  [
+    'Gymnemic acid',
+    'triterpenoid saponin',
+    'Saponins from Gymnema sylvestre studied for blood sugar and sweet-taste suppression.',
+    [],
+  ],
   ['Anethole', 'phenylpropene', 'The sweet aromatic of fennel and anise.', []],
   ['Carnosic acid', 'diterpene', 'An antioxidant diterpene from rosemary and sage.', []],
   ['Theaflavin', 'polyphenol', 'A polyphenol formed when black tea is oxidized.', []],
@@ -114,4 +164,6 @@ for (const [name, classification, summary, aliases] of SEED) {
   written++;
 }
 
-console.log(`\nPubChem import: ${written} written · ${skipped} already existed · ${failed} unresolved.`);
+console.log(
+  `\nPubChem import: ${written} written · ${skipped} already existed · ${failed} unresolved.`
+);
