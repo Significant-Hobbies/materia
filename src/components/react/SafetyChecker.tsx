@@ -71,7 +71,7 @@ export default function SafetyChecker({ remedies }: { remedies: CheckerRemedy[] 
           const other = bySlug.get(i.target);
           const sev = (i.severity as Warning['severity']) ?? 'moderate';
           out.push({
-            severity: sev === 'theoretical' ? 'minor' : sev,
+            severity: sev,
             title: `${r.name} + ${other?.name ?? i.target}`,
             detail: i.mechanism,
           });
