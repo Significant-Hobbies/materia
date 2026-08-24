@@ -31,5 +31,17 @@ const { title, description, bare, jsonld } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <script
+      is:inline
+      src="https://sassmaker.com/project-strip.js"
+      data-project="materia"
+      defer
+    ></script>
+    <script
+      is:inline
+      src="https://sassmaker.com/ai-chat-footer.js"
+      data-name="Materia"
+      defer
+    ></script>
   </body>
 </html>
