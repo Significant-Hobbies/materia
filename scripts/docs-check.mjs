@@ -1,5 +1,5 @@
 /**
- * Docs integrity check — local-first, no Blume dependency.
+ * Docs integrity check — local-first.
  *
  * Validates the `docs/` tree:
  *   1. Required entry files exist.
@@ -11,8 +11,7 @@
  *   5. ADRs referenced from docs/decision-log.md exist.
  *
  * External http(s) links are NOT checked here (network checks belong in a
- * separate, opt-in step). Blume's `blume validate` can do external links when
- * installed.
+ * separate, opt-in step).
  *
  * Run: `npm run docs:check`
  */

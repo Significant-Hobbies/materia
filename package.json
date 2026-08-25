@@ -19,8 +19,6 @@
     "test:coverage": "vitest run --coverage",
     "deploy": "node scripts/manual-deploy.mjs deploy.yml ci.yml",
     "docs:check": "node scripts/docs-check.mjs",
-    "docs:dev": "blume dev",
-    "docs:build": "blume build",
     "knip": "knip --no-exit-code --reporter symbols",
     "knip:strict": "knip --reporter symbols"
   },
@@ -49,7 +47,6 @@
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "@vitest/coverage-v8": "^4.1.9",
-    "blume": "1.2.0",
     "knip": "^6.29.0",
     "lightningcss": "^1.33.0",
     "typescript": "^5.8.3",

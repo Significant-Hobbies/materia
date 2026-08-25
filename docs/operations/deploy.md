@@ -41,20 +41,3 @@ secrets.
 - **Smoke check fails:** the `*.pages.dev` alias may lag a few seconds; the
   workflow retries 5× with 5s delay. A persistent failure means the build
   itself is broken — check the workflow logs.
-
-## Blume docs site (separate surface — not part of `npm run build`)
-
-The `docs/` tree can be published separately via Blume. **Output collision:**
-both Astro and Blume write to `dist/` by default. Before running `blume build`
-in this repo, either:
-
-- build docs in a clean checkout / CI job that doesn't also run `npm run
-  build`, or
-- override the output directory (e.g. `blume build` into a separate folder and
-  deploy that), or
-- publish docs to a separate Cloudflare Pages project pointed at a docs
-  subdomain.
-
-This is unresolved — see [`../../STATUS.md`](../../STATUS.md) "Unresolved
-questions". The committed Markdown is the source of truth regardless; Blume is
-presentation only and `.blume/` is gitignored.

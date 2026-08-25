@@ -23,8 +23,7 @@ timeline and feature inventory, see [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
 | `npm run docs:check` | Lint `docs/` structure + links |
 | `npm run deploy` | Guarded manual deploy (see `docs/operations/deploy.md`) |
 
-Node 22 (`.nvmrc`), npm. Blume (`npm run docs:dev`) is optional and
-presentation-only — the Markdown is the source of truth.
+Node 22 (`.nvmrc`), npm. The Markdown is the source of truth.
 
 ## Critical constraints (do not weaken)
 
@@ -71,8 +70,7 @@ docs/                      # canonical knowledge base (source of truth)
 
 1. **One home per fact.** Don't re-explain something that has a canonical page
    — link to it. If a fact moves, leave a one-line pointer or update links.
-2. **Markdown is the source of truth.** Blume is presentation only; never edit
-   generated `.blume/` output.
+2. **Markdown is the source of truth.** Keep canonical content in `docs/`.
 3. **Don't duplicate code.** If a value lives in `src/content.config.ts`,
    `package.json`, or a workflow YAML, link to it instead of restating it —
    code drifts faster than docs.

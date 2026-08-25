@@ -13,8 +13,7 @@ Triggers: push and pull_request to `main`/`master`.
 6. `npm run docs:check` — lints the `docs/` tree (links + structure)
 
 `npm run docs:check` is the docs-integrity gate. It is a standalone Node
-script (`scripts/docs-check.mjs`) with no Blume dependency, so CI doesn't need
-to install Blume to validate docs.
+script (`scripts/docs-check.mjs`), so CI only needs the repository runtime.
 
 ## Relationship to the deploy gate
 

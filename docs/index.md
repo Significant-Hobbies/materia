@@ -1,8 +1,7 @@
 # Materia — documentation
 
 This directory is the canonical, hand-editable knowledge base for Materia. The
-Markdown here is the **source of truth**; [Blume](https://useblume.dev)
-(`blume.config.ts`) only renders and searches it. Code and executable config
+Markdown here is the **source of truth**. Code and executable config
 (`src/`, `scripts/`, `.github/`, `*.config.*`) remain authoritative for
 implementation details and schedules.
 
@@ -30,8 +29,7 @@ historical timeline and feature inventory, see
 1. **One home per fact.** Don't re-explain something that already has a
    canonical page — link to it. If a fact moves, leave a one-line pointer or
    update the links.
-2. **Markdown is the source of truth.** Blume is presentation only; never edit
-   generated `.blume/` output.
+2. **Markdown is the source of truth.** Keep canonical content in this tree.
 3. **Don't duplicate code.** If a value lives in `src/content.config.ts`,
    `package.json`, or a workflow YAML, link to it instead of restating it —
    code drifts faster than docs.

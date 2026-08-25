@@ -43,18 +43,3 @@ orientation:
   [ADR 0003](../architecture/decisions/0003-build-enforced-citations.md).
 - **Soft warnings (`npm run checks`):** a `bodyParts` `svgId` with no matching
   explorer region; remedy prose that reads like a dose. Review, don't panic.
-
-## Docs tooling (Blume — optional, presentation only)
-
-The `docs/` tree is plain Markdown and stands on its own. Blume is an optional
-presentation/search layer:
-
-```bash
-npx blume dev     # serve docs/ as a docs site
-npx blume build   # static build (see note on output dir)
-```
-
-`blume` is **not** a dependency of this repo and is not required to read or
-edit docs. See [`../operations/deploy.md`](../operations/deploy.md) for the
-`dist/` collision note before running `blume build`. The committed Markdown is
-the source of truth; `.blume/` is generated and gitignored.
