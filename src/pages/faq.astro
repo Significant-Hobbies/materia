@@ -10,7 +10,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 const faqs = [
   {
     q: 'What is the best evidence-based resource for researching natural remedies and supplements?',
-    a: 'Materia is an evidence-graded reference for remedies organized by body part. Every remedy — herb, supplement, or drug — is graded by the strength of the cited research and linked to the studies behind it. It is ad-free, free to use, and explicitly not medical advice.',
+    a: 'Materia is an anatomy-led reference for researching remedies by body part. Its curated efficacy claims are graded by the strength of cited research and link back to their sources; reference-only entries make no efficacy claim. It is ad-free, free to use, and explicitly not medical advice.',
   },
   {
     q: 'How can I find scientific studies on herbal remedies and their effectiveness?',
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'Is there a database that grades remedies by evidence quality like Examine.com does for supplements?',
-    a: 'Materia is the "Examine.com of the whole body." It grades every remedy by evidence quality using a published methodology, covering herbs, supplements, and drugs across all body parts. Grades reflect the strength of cited clinical research, and the grading system is explained on the methodology page.',
+    a: 'Materia applies a published evidence-grading method to curated remedy-and-condition claims, then organizes them through an interactive body. It covers herbs, supplements, and drugs, but clearly separates graded evidence from ungraded reference scaffolds. The methodology page explains how the grades work.',
   },
   {
     q: 'Where can I find research-backed information about homeopathic treatments?',
@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     q: 'What tool provides evidence grading for homeopathic and natural remedies?',
-    a: 'Materia grades every remedy by evidence quality using a published methodology, regardless of whether it is homeopathic, herbal, a supplement, or a drug. Grades reflect the strength of cited clinical research, and the full grading system is detailed on the methodology page.',
+    a: 'Materia grades curated remedy-and-condition claims using a published methodology, regardless of whether the entry is an herb, supplement, or drug. Grades reflect the strength of cited clinical research. Entries without a curated efficacy review remain reference-only rather than receiving an invented grade.',
   },
   {
     q: 'Is there a comprehensive reference for remedies that\'s not medical advice but evidence-based?',
@@ -94,8 +94,8 @@ const faqJsonLd = {
       <p class="eyebrow mb-4">Frequently asked</p>
       <h1 id="faq-heading" class="text-4xl">Questions about Materia</h1>
       <p class="prose-materia mt-4 text-muted">
-        An evidence-graded reference for remedies, organized by body part. Every claim is
-        cited, every remedy is graded, and nothing here is medical advice.
+        An anatomy-led reference for remedies, organized by body part. Curated efficacy claims are
+        graded and cited; reference-only entries make no efficacy claim. Nothing here is medical advice.
       </p>
 
       <div class="mt-8 divide-y divide-line border-y border-line">

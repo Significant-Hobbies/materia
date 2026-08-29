@@ -115,10 +115,11 @@ describe('generated agent surfaces', () => {
     const routes = await getPublicRoutes();
     const catalog = createAgentCatalog(routes);
 
-    expect(catalog.routes).toHaveLength(routes.length);
-    expect(catalog.routes.every((route) => route.url.startsWith(SITE_ORIGIN))).toBe(true);
-    expect(catalog.routes.every((route) => route.markdown.endsWith('.md'))).toBe(true);
+    expect(catalog.surfaces).toHaveLength(routes.length);
+    expect(catalog.surfaces.every((surface) => surface.url.startsWith(SITE_ORIGIN))).toBe(true);
+    expect(catalog.surfaces.every((surface) => surface.md.endsWith('.md'))).toBe(true);
     expect(catalog.sitemap).toBe(`${SITE_ORIGIN}/sitemap-index.xml`);
+    expect(catalog).not.toHaveProperty('openapi');
   });
 
   it('keeps llms.txt compact and points to the complete catalog', async () => {
@@ -126,6 +127,7 @@ describe('generated agent surfaces', () => {
 
     expect(text).toContain(`${SITE_ORIGIN}/api/ai`);
     expect(text).toContain(`${SITE_ORIGIN}/sitemap-index.xml`);
+    expect(text).not.toContain('/openapi.json');
     expect(text).not.toContain('/condition/hypertension');
   });
 });

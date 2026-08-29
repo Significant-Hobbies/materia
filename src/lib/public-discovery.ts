@@ -169,17 +169,16 @@ export async function getPublicRoutes(): Promise<PublicRoute[]> {
 export function createAgentCatalog(routes: PublicRoute[]) {
   return {
     name: 'Materia',
-    version: 2,
+    version: 3,
     url: SITE_ORIGIN,
     llms: absolute('/llms.txt'),
     sitemap: absolute('/sitemap-index.xml'),
     robots: absolute('/robots.txt'),
-    openapi: absolute('/openapi.json'),
     markdown: { suffix: '.md', homepage: absolute('/index.md'), negotiation: true },
-    routes: routes.map(({ path, markdownPath, kind, title, description }) => ({
-      path,
+    surfaces: routes.map(({ path, markdownPath, kind, title, description }) => ({
+      id: path === '/' ? 'home' : path.slice(1),
       url: absolute(path),
-      markdown: absolute(markdownPath),
+      md: absolute(markdownPath),
       kind,
       title,
       description,
@@ -189,7 +188,7 @@ export function createAgentCatalog(routes: PublicRoute[]) {
 
 export function createLlmsText(routes: PublicRoute[]) {
   const directories = routes.filter((route) => route.kind === 'static');
-  return `# Materia\n\n> Evidence-graded reference for remedies organized by body part, with study-level citations.\n\n## When to use this\n\n- Looking up evidence-graded remedies for a specific body part, condition, or compound\n- Checking the strength of research behind an herb, supplement, or drug before recommending it\n- Browsing a knowledge graph of body → condition → remedy → compound → study with citations\n- Getting the full public catalog as JSON or per-page markdown for agent consumption\n\n## Public pages\n\n${directories.map((route) => `- ${link(route.title, route.path)}: ${route.description}`).join('\n')}\n\n## Machine-readable access\n\n- ${link('Agent catalog', '/api/ai')}: complete JSON route and Markdown inventory\n- ${link('OpenAPI spec', '/openapi.json')}: machine-readable API contract for all agent surfaces\n- ${link('Sitemap', '/sitemap-index.xml')}: canonical public HTML pages\n- ${link('Robots', '/robots.txt')}: crawler policy\n- Markdown mirrors use the cataloged \`.md\` URL for every public page.\n\nMateria is an educational reference, not medical advice. Prefer cited page content over unsupported medical claims.\n`;
+  return `# Materia\n\n> Evidence-graded reference for remedies organized by body part, with study-level citations.\n\n## When to use this\n\n- Looking up evidence-graded remedies for a specific body part, condition, or compound\n- Checking the strength of research behind an herb, supplement, or drug before recommending it\n- Browsing a knowledge graph of body → condition → remedy → compound → study with citations\n- Getting the full public catalog as JSON or per-page markdown for agent consumption\n\n## Public pages\n\n${directories.map((route) => `- ${link(route.title, route.path)}: ${route.description}`).join('\n')}\n\n## Machine-readable access\n\n- ${link('Agent catalog', '/api/ai')}: complete JSON route and Markdown inventory\n- ${link('Sitemap', '/sitemap-index.xml')}: canonical public HTML pages\n- ${link('Robots', '/robots.txt')}: crawler policy\n- Markdown mirrors use the cataloged \`.md\` URL for every public page.\n\nMateria is an educational reference, not medical advice. Prefer cited page content over unsupported medical claims.\n`;
 }
 
 export function createLlmsFullText(routes: PublicRoute[]) {

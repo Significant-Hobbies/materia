@@ -10,6 +10,7 @@ export default defineConfig({
   site: 'https://materia.significanthobbies.com',
   output: 'static',
   trailingSlash: 'never',
+  server: { allowedHosts: ['.trycloudflare.com'] },
   // Emit `about.html` rather than `about/index.html` so URLs carry no trailing
   // slash on Cloudflare Pages (no 308 redirect on every internal link).
   // Inline ALL stylesheets so first paint never blocks on an external CSS

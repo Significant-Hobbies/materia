@@ -121,6 +121,7 @@ export default function BodyExplorer({
   models?: Record<string, string>;
 }) {
   const system = useStore($activeSystem);
+  const [show3D, setShow3D] = useState(false);
   const activeParts = parts.filter((p) => p.systems.includes(system));
   const modelUrl = models[system];
 
@@ -135,20 +136,41 @@ export default function BodyExplorer({
       </div>
 
       <div className="relative grid place-items-center bg-[var(--color-base)] p-6">
-        {modelUrl ? (
+        {modelUrl && show3D ? (
           <ThreeBodyWithRecovery
             key={system}
             parts={activeParts}
             modelUrl={modelUrl}
             system={system}
           />
+        ) : modelUrl && system === 'skeletal' ? (
+          <img
+            src="/anatomy-skeletal-preview.webp"
+            alt="Preview of Materia's interactive skeletal model"
+            width="1100"
+            height="1122"
+            className="h-[560px] w-full object-contain"
+          />
         ) : (
           <AnatomyBody parts={activeParts} />
         )}
+        {modelUrl && !show3D && (
+          <div className="absolute inset-x-4 top-4 z-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShow3D(true)}
+              className="rounded-md border border-[var(--color-line)] bg-[var(--color-surface)]/95 px-4 py-2 text-sm font-medium text-[var(--color-ink)] shadow-sm transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
+            >
+              Load interactive 3D body
+            </button>
+          </div>
+        )}
         <p className="pointer-events-none absolute bottom-3 left-0 right-0 text-center text-xs text-[var(--color-faint)]">
-          {modelUrl
+          {modelUrl && show3D
             ? 'Drag to rotate · click a highlighted region to see remedies'
-            : 'Hover to highlight · click a highlighted region to see remedies'}
+            : modelUrl
+              ? 'Load the 3D body to rotate and select structures'
+              : 'Hover to highlight · click a highlighted region to see remedies'}
         </p>
       </div>
 

@@ -32,7 +32,7 @@ for (const [sys, file] of Object.entries(MODEL_FILES)) {
 const faqs = [
   {
     q: 'What is Materia?',
-    a: 'Materia is an evidence-graded reference for remedies, organized by body part. A layered, clickable human body leads into a knowledge graph linking body, condition, remedy, compound, and study. Every remedy is evidence-graded and study-cited. It is ad-free and not medical advice.',
+    a: 'Materia is an anatomy-led reference for remedies. A layered, clickable human body leads into a knowledge graph linking body, condition, remedy, compound, and study. Curated efficacy claims carry an evidence grade and citation; reference-only entries are clearly separated. It is ad-free and not medical advice.',
   },
   {
     q: 'Is Materia free?',
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     q: 'How many remedies does Materia have?',
-    a: 'Materia includes hundreds of remedies across dozens of body parts and conditions, each with cited studies and an evidence grade. The content is hand-edited and continuously expanded as new research is reviewed and added to the knowledge graph.',
+    a: 'Materia currently maps 207 remedy entries across 24 body parts and 77 conditions. Of those remedies, 91 have curated evidence content; the remaining drug and herb entries are reference scaffolds without efficacy claims. The 553-page baseline is published and intentionally paused rather than continuously expanded.',
   },
 ];
 
@@ -96,18 +96,9 @@ const softwareAppJsonLd = {
 
 const jsonld = [faqJsonLd, softwareAppJsonLd];
 
-const fleet = [
-  { label: 'Foundry', href: 'https://sassmaker.com', note: 'SaaS factory floor' },
-  { label: 'Aliveville', href: 'https://aliveville.com', note: 'AI world simulator' },
-  { label: 'CodeVetter', href: 'https://codevetter.com', note: 'AI code review' },
-  { label: 'High Signal', href: 'https://highsignal.app', note: 'Daily tech/startup brief' },
-  { label: 'Karte', href: 'https://karte.cc', note: 'AI link-in-bio' },
-  { label: 'RolePatch', href: 'https://rolepatch.com', note: 'AI resume tailoring' },
-  { label: 'Significant Hobbies', href: 'https://significanthobbies.com', note: 'Hobby journey mapper' },
-];
 ---
 
-<BaseLayout jsonld={jsonld}>
+<BaseLayout jsonld={jsonld} preloadImage="/anatomy-skeletal-preview.webp">
   <section class="container-x grid items-center gap-10 py-16 lg:grid-cols-[1.05fr_1fr] lg:py-24">
     <div style="animation: rise 0.6s var(--ease-out-expo) both">
       <p class="eyebrow mb-4">Evidence-graded · Ad-free · Fully cited</p>
@@ -116,8 +107,8 @@ const fleet = [
       </h1>
       <p class="prose-materia mt-6 text-lg text-muted">
         Explore a layered human body, click any part, and see the herbs, supplements, and drugs
-        that may help. Each one is graded by the strength of the research and linked to the studies
-        behind it.
+        connected to it. Curated efficacy claims are graded by the strength of the research and
+        linked to the studies behind them; reference-only entries make no efficacy claim.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a
@@ -185,29 +176,4 @@ const fleet = [
     </div>
   </section>
 
-  <section class="container-x pb-16" aria-labelledby="fleet-heading">
-    <div class="mx-auto max-w-3xl border-t border-line pt-10">
-      <p class="eyebrow mb-4">More from the fleet</p>
-      <h2 id="fleet-heading" class="text-lg text-ink" style="font-family: var(--font-display)">
-        Sister projects by the same author
-      </h2>
-      <ul class="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2">
-        {
-          fleet.map((f) => (
-            <li class="flex items-baseline gap-2 text-sm text-muted">
-              <a
-                href={f.href}
-                class="font-medium text-fg transition-colors hover:text-accent"
-                rel="noopener"
-                target="_blank"
-              >
-                {f.label}
-              </a>
-              <span class="text-faint">— {f.note}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
 </BaseLayout>
