@@ -1,0 +1,40 @@
+{
+  "$schema": "fleet.landing-audit.v1",
+  "project": "materia",
+  "priority": "P4",
+  "decision": "Hold",
+  "auditedAt": "2026-08-29",
+  "candidateUrl": "https://supplement-stopping-taught-implement.trycloudflare.com/",
+  "productionUrl": "https://materia.significanthobbies.com/",
+  "releaseState": "Released and verified on the canonical production domain at commit 44c521df646d9127288e9617c50fb68d255b91e9. CI, Cloudflare Pages deployment, production homepage and /api/ai smoke, and the complete public sitemap check passed; the live 555-surface agent catalog now returns HTTP 200.",
+  "implementationAction": "preserve",
+  "migrationCandidate": false,
+  "gates": {
+    "contentPurpose": {
+      "score": 99,
+      "status": "pass",
+      "evidence": "The first viewport explains the anatomy-led mechanism, the remedy categories, the evidence-grade boundary, and the citation model before asking visitors to explore. Candidate copy now distinguishes 91 curated remedies from reference-only scaffolds and truthfully says the 553-page baseline is intentionally paused."
+    },
+    "designQuality": {
+      "score": 95,
+      "status": "pass",
+      "evidence": "The restrained apothecary visual language suits an ad-free health reference, and the anatomy explorer is meaningful product proof rather than decoration. The initial state now uses a truthful poster rendered from Materia's licensed model, with an explicit control for the heavier 3D view. Exact 390, 768, and 1440 pixel checks have zero horizontal overflow, one project strip, and one Ask AI footer. The page is not a migration candidate."
+    },
+    "seo": {
+      "score": 99,
+      "status": "pass",
+      "evidence": "The latest candidate passes all 14 critical homepage checks. Title, 152-character description, canonical, Open Graph, Twitter card, one H1, heading hierarchy, internal links, JSON-LD, and approximately 1,717 words of server-rendered content are present; the only advisory is that app JSON-LD has no review evidence for a Google rich result."
+    },
+    "geo": {
+      "score": 92,
+      "status": "pass-with-advisory",
+      "evidence": "The released source exposes robots.txt, llms.txt, llms-full.txt, index.md, route-level Markdown, canonical sitemaps, JSON-LD, and a 555-surface /api/ai catalog using the fleet-standard url/md shape. The release workflow passed production smoke and verified every public sitemap URL; the post-release Fleet agent-index audit scored the canonical host S-tier 100 with every signal present."
+    },
+    "performance": {
+      "score": 91,
+      "status": "pass",
+      "evidence": "PSI Swarm completed five successful runs in each of four production-equivalent profiles through the gzip-enabled Cloudflare Tunnel. P75 Lighthouse performance scores were 91 on slow 3G and 100 on mid mobile, fast mobile, and desktop; corresponding P75 LCP was 3.40 s, 1.59 s, 797 ms, and 496 ms. The coverage-weighted verdict was 1.21 s LCP, 0.008 CLS, and 0 ms TBT. The multi-megabyte 3D renderer and model are absent from the initial request graph and load only after user intent. The previous score of 88 came from an uncompressed localhost response and did not represent the production delivery path."
+    }
+  },
+  "minimumObserved": 91
+}
