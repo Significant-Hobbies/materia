@@ -25,6 +25,7 @@ export default defineConfig({
         return (
           !path.endsWith('.md') &&
           path !== '/api/ai' &&
+          path !== '/api-ai.json' &&
           path !== '/llms.txt' &&
           path !== '/llms-full.txt' &&
           path !== '/data/materia-graph.json'
